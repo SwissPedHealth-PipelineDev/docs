@@ -77,6 +77,14 @@ The following table is the output of this process.
 Example outputs can be downloaded from the public set.
 Each link points to the file within the GitHub repository.
 
+
+
+Here's the table updated with direct download links that point to the raw file content on GitHub, allowing users to download the files directly:
+
+## Downloads
+
+Example outputs can be downloaded from the public set:
+
 | File Name                        | Download Link                                                                                                   |
 |----------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | `example_variant.Rds`            | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/example_variant.Rds)          |
