@@ -25,6 +25,11 @@ The following example is equivalent to a subset of real output available in prod
 {: .note }
 This document is to be updated as we improve the `metadata_descriptions` step which is critical so that downstream users can correctly map data.
 
+## Aims
+
+1. Start with a table of variant information output by our pipeline.
+2. Pick key terms, example: CHROM, POS, REF, ALT.
+3. Add new metadata columns which state the concept requirements.
 
 ## Checklist
 
@@ -71,15 +76,6 @@ The following table is the output of this process.
 | `POS_Metadata`  | Type: Genomic Position; Cardinality: 1:1; Value Set: GENO:0000902                   |
 | `REF_Metadata`  | Type: Reference Allele; Cardinality: 1:1; Value Set: string                         |
 | `ALT_Metadata`  | Type: Alternate Allele; Cardinality: 1:1; Value Set: string                         |
-
-## Downloads
-
-Example outputs can be downloaded from the public set.
-Each link points to the file within the GitHub repository.
-
-
-
-Here's the table updated with direct download links that point to the raw file content on GitHub, allowing users to download the files directly:
 
 ## Downloads
 
