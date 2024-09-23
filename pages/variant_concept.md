@@ -15,38 +15,122 @@ Last update: 20240920
 </details>
 
 
+<!--  (curly) (percent symbol)  include example_variant_enhanced.html (percent symbol) (curly) -->
+
+
 # Variant features to RDF concept metadata
 
-This page outlines the process of preparing and validating variants against specific RDF structure data concepts. 
-Prior to this step, whole genome sequence data will have been processed and filtered to identify clinically actionable genetic variants.
-Resulting omic output can then be reported back with accurate integration into clinical data warehouses.
-The following example is equivalent to a subset of real output available in production.
+This documentation outlines the transformation of variant information from whole genome sequence (WGS) data to a format adhering to RDF structure data concepts. 
+The aim is to ensure that the omic output from genomic analyses can be seamlessly integrated into clinical data warehouses with high fidelity and clarity.
+
+## Overview
+
+The process begins with the extraction of variant data from a genomic study, (no sensitive data is included in the public example set). 
+The key variant features such as Chromosome (CHROM), Position (POS), Reference Allele (REF), and Alternate Allele (ALT) are formatted alongside metadata that describes their relationship to RDF concepts. 
+This ensures downstream users can map these data accurately within clinical and research frameworks.
 
 {: .note }
-This document is to be updated as we improve the `metadata_descriptions` step which is critical so that downstream users can correctly map data.
+This document is to be updated as we improve the linking of result terms to `SPHN_dataset_release_2024_2_20240502.xlsx` which is critical so that downstream users can correctly map data.
 
 ## Aims
 
-1. Start with a table of variant information output by our pipeline.
-2. Pick key terms, example: CHROM, POS, REF, ALT.
-3. Add new metadata columns which state the concept requirements.
+1. **Data preparation**: Start with the extracted variant information from the genomic pipeline.
+2. **Key term identification**: Focus on essential genomic terms like CHROM, POS, REF, and ALT, Sequencing run, Sequencing instrument.
+3. **Metadata addition**: Attach metadata columns that specify RDF concept requirements such as type and cardinality.
+4. **Validation checklist**:
+	- Do we have all necessary variant descriptors present?
+	- Is there inclusion and accuracy of all metadata explanations?
+	- Is there alignment of metadata with SPHN omic concepts?
+	- Downstream users (mapping) can choose from TSV, HTML, JSON, and Rds. Any others needed?
 
-## Checklist
+## Current version
 
-1. Do we have all necessary variant descriptors in the example? 
-2. Do we have all necessary metadata explanations such as cardinality?
-3. Are the metadata explanations correct based on the SPHN omic concepts?
-4. Downstream users (mapping) can choose from TSV, HTML, JSON, and Rds. Any others needed?
+Example output table in html format for variables matched to their SPHN concept.
+{% include concept/out/example_report_concepts.html %}
 
+## Downloads
 
-## Output example
+Example output (in mutiple filetypes) can be downloaded from the public set:
 
-The following table is the output of this process.
+| File Name                      | Download Link                                                                                                       |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| `example_report_concepts.tsv`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.tsv)  |
+| `example_report_concepts.html`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.html)  |
+| `example_report_concepts.json`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.json)  |
+| `example_report_concepts.Rds`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.Rds)  |
 
-{% include example_variant_enhanced.html %}
+Example inputs can be downloaded from the public set:
 
-1. Our WGS pipleine includes variant descriptor columns.
-2. We add additional metadata column to help with mapping.
+| File Name                                                             | Download Link                                                                                                                                         |
+|-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Canton_001_NGS000012345_NA_S46_L001_R1_001.fastq_head.text`          | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/Canton_001_NGS000012345_NA_S46_L001_R1_001.fastq_head.text)          |
+| `Canton_001_NGS000012345_NA_S46_L001_R1_001_sample_seq_assay_log.text`| [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/Canton_001_NGS000012345_NA_S46_L001_R1_001_sample_seq_assay_log.text)|
+| `SPHN_dataset_release_2024_2_20240502.xlsx`                           | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/SPHN_dataset_release_2024_2_20240502.xlsx)                           |
+| `sequencing assay_van_der_Horst2023.txt`                              | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/sequencing_assay_van_der_Horst2023.txt)                              |
+| `bwa_10351_101_10453.out.text`                                        | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/bwa_10351_101_10453.out.text)                                        |
+| `example_variant.Rds`                                                 | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/example_variant.Rds)                                                 |
+| `example_variant.tsv`                                                 | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/example_variant.tsv)                                                 |
+
+## Process Steps for Variant Features to RDF Concept Mapping
+
+This section outlines the sequential processing steps from data extraction through to the final merged dataset, prepared for RDF concept mapping. Each step corresponds to a specific script and handles distinct data types or stages in data preparation and merging.
+
+1. **Export Variant Data from Study**
+	- Extracts variant data from genomic projects focusing on specific genes and filtering for high-impact variants, saving them in formats like RDS and TSV for further processing.
+2. **Read Variant Report Data**
+	- Loads and transforms variant data into a long format to facilitate metadata annotation, preparing the data by adding a column for metadata requirements.
+3. **Read Sequencing Assay Data**
+	- Extracts key sequencing assay data such as identifiers, read depth, and file formats from logs or metadata files, providing crucial context for sequencing parameters.
+4. **Read BWA Read Group Data**
+	- Parses BWA and samtools log files to extract detailed read group information, including metadata about the sequencing run such as machine, file paths, and read group specifications.
+5. **Read Fastq Header Data**
+ 	- Analyzes headers from FASTQ files to extract sequencing instrument details and run metrics, offering a granular look at the sequencing runs which is instrumental in validating sequencing quality and parameters.
+6. **Merge Datasets**
+	- Combines all processed data from the previous steps into a single dataset, aligning them by common identifiers and ensuring consistency across data types.
+7. **Map Pipeline Output to SPHN Concepts**
+	- Maps the merged dataset to standard SPHN RDF concepts, ensuring each data point is correctly classified according to standardized ontology, thus aligning detailed genomic data with broader healthcare data standards.
+
+## Terms used in WGS logging
+
+### Descriptions for sequencing assay (WGS) terms
+
+| Column Name            | Description |
+|------------------------|-------------|
+| `seq_assay_identifier` | The unique identifier for the sequencing assay, typically a standard ontology term such as obo:OBI_002117 for Whole Genome Sequencing. |
+| `seq_assay_intended_read_depth` | The targeted depth of coverage for the sequencing assay, indicating how many times each base is expected to be sequenced; in this case, 150x. |
+| `seq_assay_intended_read_length` | The expected length of each read in the sequencing process, measured in base pairs; here, 20 bp. |
+| `data_file_identifier` | Identifier for the data file output from the sequencing, used to trace and access the file within data systems. |
+| `data_file_format` | The format of the sequencing data files, specifying the standard used; here, EDAM format 1931, which is typical for FASTQ files from Illumina platforms. |
+| `quality_control_name` | The name of the metric used to assess the quality of the sequencing data; in this case, the Phred quality score. |
+| `quality_control_value` | The actual quality score achieved, indicating the reliability of the sequencing reads; 78.33% in this context. |
+| `library_prep_kit` | Specifies the kit used for preparing DNA libraries for sequencing, critical for understanding the sample preparation methodology; Illumina TruSeq DNA PCR-Free is noted for high fidelity. |
+| `sample_identifier` | The unique identifier for the sample being sequenced, used for tracking and reference throughout the sequencing process. |
+| `sample_material_type` | The type of biological material from which the sample was derived, with its specific ontology code; snomed:119297000 denotes a blood sample. |
+| `seq_instrument_code` | The identifier for the sequencing instrument used, linking to specific equipment details; obo: OBI_0002630 refers to the Illumina NovaSeq 6000. |
+| `sop_name` | The name of the Standard Operating Procedure followed during the sequencing, ensuring consistency and reproducibility; here, "WGS with Illumina NovaSeq 6000". |
+| `sop_description` | A brief description of the SOP, providing context and specifics about the sequencing approach used. |
+| `sop_version` | The version number of the SOP, which helps in identifying any changes or updates that might affect the sequencing output or interpretation. |
+
+### Descriptions for FASTQ/BAM readgroup terms
+
+| Column Name   | Description |
+|---------------|-------------|
+| `START AT`    | The start timestamp of the sequencing or analysis process. |
+| `END AT`      | The end timestamp of the sequencing or analysis process. |
+| `sample_read_id` | A unique identifier for each sample read in the process. |
+| `rel_dir`     | Relative directory path where sequencing data is stored. |
+| `dir_id`      | Directory identifier combining the project and sample ID. |
+| `FILE1`       | Path to the first FASTQ file generated by sequencing. |
+| `FILE2`       | Path to the second FASTQ file generated by sequencing. |
+| `output_file` | Path to the final BAM file generated after processing. |
+| `ID`          | Internal identifier used to track the sample in analysis. |
+| `SM`          | Sample name or identifier used within the BAM file. |
+| `PL`          | Sequencing platform used, indicating technology type. |
+| `PU`          | Platform unit (PU) tag, often a barcode identifier. |
+| `LB`          | Library ID which is crucial for distinguishing between libraries prepared differently. |
+| `RG`          | Read group identifier in a BAM file, encapsulating all other identifiers. |
+
+### Descriptions for genetic variants terms
 
 | Column Name     | Description                                                                         |
 |-----------------|-------------------------------------------------------------------------------------|
@@ -77,151 +161,3 @@ The following table is the output of this process.
 | `REF_Metadata`  | Type: Reference Allele; Cardinality: 1:1; Value Set: string                         |
 | `ALT_Metadata`  | Type: Alternate Allele; Cardinality: 1:1; Value Set: string                         |
 
-## Downloads
-
-Example outputs can be downloaded from the public set:
-
-| File Name                        | Download Link                                                                                                   |
-|----------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| `example_variant.Rds`            | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/example_variant.Rds)          |
-| `example_variant.tsv`            | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/example_variant.tsv)          |
-| `example_variant_enhanced.Rds`   | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/example_variant_enhanced.Rds) |
-| `example_variant_enhanced.html`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/example_variant_enhanced.html)|
-| `example_variant_enhanced.json`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/example_variant_enhanced.json)|
-| `example_variant_enhanced.tsv`   | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/example_variant_enhanced.tsv) |
-
-
-## Variant Extraction
-The first script gathers example variants and extracts key columns necessary for reporting a genetic variant as a cause of disease.
-Script Location
-`./src/1_get_example_variant.R`
-
-```R
-library(dplyr)
-
-# This block reads some example variants from a project ----
-geneset_MCL_ID <- c(22, 586)
-df_report_main_text <- readRDS(file=paste0("~/examples/ACMGuru_post_ppi/df_report_main_text_", paste(geneset_MCL_ID, collapse="_"), ".Rds"))
-
-names(df_report_main_text)
-# > names(df_report_main_text)
-# [1] "sample.id"        "ACMG_total_score" "ACMG_count"       "ACMG_highest"    
-# [5] "rownames"         "CHROM"            "REF"              "ALT"             
-# [9] "POS"              "start"            "end"              "width"           
-# [13] "Gene"             "SYMBOL"           "HGNC_ID"          "HGVSp"           
-# [17] "HGVSc"            "Consequence"      "IMPACT"           "genotype"        
-# [21] "Feature_type"     "Feature"          "BIOTYPE"          "VARIANT_CLASS"   
-# [25] "CANONICAL"        "Inheritance"      "CLIN_SIG"         "gnomAD_AF"       
-# [29] "comp_het_flag"    "Strong_patho"     "Moder_patho"      "Suppor_patho"  
-
-# select features ----
-df_report_set <- df_report_main_text |> 
-	dplyr::select(sample.id, rownames, 
-					  CHROM, REF, ALT, 
-					  POS, start, end, width, 
-					  Gene, SYMBOL, HGNC_ID, 
-					  HGVSp, HGVSc, Consequence, 
-					  IMPACT, genotype,
-					  Feature_type, Feature, BIOTYPE, VARIANT_CLASS, CANONICAL,
-	) |> 
-	filter(IMPACT == "HIGH") |>
-	head(3)
-
-df_report_set |> names()
-
-# set example sample.id ----
-df_report_set$sample.id <- "Canton_001"
-
-# save example variant as Rds and as TSV ----
-output_directory <- "../data/"
-saveRDS(df_report_set, file=paste0(output_directory, "example_variant.Rds"))
-write.table(df_report_set, file=paste0(output_directory, "example_variant.tsv"), sep = "\t")
-```
-
-## Mapping to Metadata
-
-The second script enhances the output from the first script by appending metadata to facilitate mapping to RDF concepts.
-
-Script Location `./src/2_variant_to_meta.R`
-
-```R
-library(dplyr)
-library(knitr)
-library(kableExtra)
-library(jsonlite)
-
-# Define the key columns for genetic variation concepts ----
-key_columns <- c("CHROM", "POS", "REF", "ALT")
-key_metadata <- paste(key_columns, "Metadata", sep = "_")
-
-# Enhance dataframe with visible metadata columns for easy reference -----
-df_enhanced <- df_report_set %>%
-	mutate(
-		CHROM_Metadata = "Type: Chromosome; Cardinality: 1:1; Value Set: SNOMED CT: 91272006, LOINC:48000-4",
-		POS_Metadata = "Type: Genomic Position; Cardinality: 1:1; Value Set: GENO:0000902",
-		REF_Metadata = "Type: Reference Allele; Cardinality: 1:1; Value Set: string",
-		ALT_Metadata = "Type: Alternate Allele; Cardinality: 1:1; Value Set: string"
-	)
-
-# Generate footnotes dynamically based on key metadata columns ----
-metadata_descriptions <- c(
-	"CHROM_Metadata" = "Metadata for CHROM column: Type: Chromosome, Cardinality: 1:1, Value Set: SNOMED CT: 91272006, LOINC:48000-4",
-	"POS_Metadata" = "Metadata for POS column: Type: Genomic Position, Cardinality: 1:1, Value Set: GENO:0000902",
-	"REF_Metadata" = "Metadata for REF column: Type: Reference Allele, Cardinality: 1:1, Value Set: string",
-	"ALT_Metadata" = "Metadata for ALT column: Type: Alternate Allele, Cardinality: 1:1, Value Set: string"
-)
-
-# Create the HTML table with footnotes for metadata ----
-table_html <- df_enhanced %>%
-	kable("html", escape = FALSE) %>%
-	kable_styling(
-		bootstrap_options = c("striped", "hover", "condensed"), 
-		full_width = FALSE,
-		font_size = 14, 
-		position = "left"
-	) %>%
-	column_spec(1, bold = TRUE) %>% 
-	row_spec(0, bold = TRUE, background = "#D3D3D3", color = "black") %>% 
-	# add_header_above(c(" " = 1, "Genetic Variation Info" = 4)) %>% 
-	scroll_box(width = "100%", height = "500px") 
-
-# Apply red color to key columns and their metadata ----
-for (col in key_columns) {
-	col_index <- which(names(df_enhanced) == col)
-	table_html <- table_html %>%
-		column_spec(col_index, color = "red", bold = TRUE)
-}
-
-# Adding footnotes for key metadata columns ----
-table_html <- table_html %>%
-	footnote(
-		general = metadata_descriptions[key_metadata],
-		general_title = "Key Metadata Descriptions",
-		symbol = "*"
-	)
-
-# Save the HTML table to a file -----
-output_directory <- "../data/"
-file_html <- paste0(output_directory, "example_variant_enhanced.html")
-writeLines(as.character(table_html), file_html)
-
-# Convert the enhanced dataframe to JSON format ----
-table_json <- toJSON(df_enhanced, pretty = TRUE)
-file_json <- paste0(output_directory, "example_variant_enhanced.json")
-writeLines(table_json, file_json)
-
-# Optionally, open the HTML file in the default system browser ----
-if (Sys.info()["sysname"] == "Windows") {
-	shell(paste("start", file_html))
-} else {
-	system(paste("open", file_html))
-}
-
-# Print completion messages
-cat("The HTML table has been generated and saved successfully.\n")
-cat("The JSON data has been generated and saved successfully.\n")
-
-# save as a Rds and TSV file ----
-saveRDS(df_enhanced, file=paste0(output_directory, "example_variant_enhanced.Rds"))
-write.table(df_enhanced, file=paste0(output_directory, "example_variant_enhanced.tsv"), sep = "\t")
-```

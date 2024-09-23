@@ -1,0 +1,63 @@
+"dataset"	"names"	"observation"	"metadata_requirement"
+"sequence_assay"	"seq_assay_identifier"	"obo:OBI_002117 (WGS)"	"Type: WGS Identifier; Cardinality: 1:1; Value Set: OBI_002117"
+"sequence_assay"	"seq_assay_intended_read_depth"	"150"	"Type: Read Depth; Cardinality: 1:1; Value Set: integer"
+"sequence_assay"	"seq_assay_intended_read_length"	"20"	"Type: Read Length; Cardinality: 1:1; Value Set: integer"
+"sequence_assay"	"data_file_identifier"	"out.fastq"	"Type: File Identifier; Cardinality: 1:1; Value Set: string"
+"sequence_assay"	"data_file_format"	"edam:format_1931 (FASTQ - Illumina)"	"Type: File Format; Cardinality: 1:1; Value Set: EDAM format_1931 (FASTQ - Illumina)"
+"sequence_assay"	"quality_control_name"	"phred quality score"	"Type: QC Metric Name; Cardinality: 1:1; Value Set: phred quality score"
+"sequence_assay"	"quality_control_value"	"78.33 %"	"Type: QC Metric Value; Cardinality: 1:1; Value Set: percentage"
+"sequence_assay"	"library_prep_kit"	"Illumina TruSeq DNA PCR-Free"	"Type: Library Prep Kit; Cardinality: 1:1; Value Set: Illumina TruSeq DNA PCR-Free"
+"sequence_assay"	"sample_identifier"	"blood_sample_1"	"Type: Sample Identifier; Cardinality: 1:1; Value Set: SNOMED CT"
+"sequence_assay"	"sample_material_type"	"snomed:119297000 (Blood sample)"	"Type: Sample Material Type; Cardinality: 1:1; Value Set: SNOMED 119297000 (Blood sample)"
+"sequence_assay"	"sop_name"	"WGS with Illumina NovaSeq 6000"	"Type: SOP Name; Cardinality: 1:1; Value Set: string"
+"sequence_assay"	"sop_description"	"SOP for WGS with Illumina NovaSeq 6000"	"Type: SOP Description; Cardinality: 1:1; Value Set: string"
+"sequence_assay"	"sop_version"	"v0.1"	"Type: SOP Version; Cardinality: 1:1; Value Set: string"
+"sequence_assay"	"sample.id"	"Canton_001"	NA
+"sequence_assay"	"omic_result.id"	"omicABC123"	NA
+"analysis_report"	"sample.id"	"Canton_001_NGS000012345_NA_S46_L001"	NA
+"analysis_report"	"FILE1"	"/user/data/wgs/fastp/221031_A00485_1234_AHNFF5DSX3/Canton_001_NGS000012345_NA_S46_L001_R1.fq.gz"	NA
+"analysis_report"	"FILE2"	"/user/data/wgs/fastp/221031_A00485_1234_AHNFF5DSX3/Canton_001_NGS000012345_NA_S46_L001_R2.fq.gz"	NA
+"analysis_report"	"output_file"	"/user/data/wgs/bam/221031_A00485_1234_AHNFF5DSX3/Canton_001_NGS000012345_NA_S46_L001.bam"	NA
+"analysis_report"	"ID"	"Canton_001_NGS000012345_NA_S46_L001"	NA
+"analysis_report"	"SM"	"Canton_001"	NA
+"analysis_report"	"PL"	"NovaSeq6000_WGS_TruSeq"	NA
+"analysis_report"	"PU"	"HNFF5DSX3.1.Canton_001"	NA
+"analysis_report"	"LB"	"Canton_001_NGS000012345"	NA
+"analysis_report"	"RG"	"@RG\tID:Canton_001_NGS000012345_NA_S46_L001\tSM:/user/Canton_001\tPL:NovaSeq6000_WGS_TruSeq\tPU:HNFF5DSX3.1.Canton_001\tLB:Canton_001_NGS000012345"	NA
+"analysis_report"	"omic_result.id"	"omicABC123"	NA
+"fastq_header"	"instrument"	"A00485"	NA
+"fastq_header"	"run_number"	"334"	NA
+"fastq_header"	"flowcell_ID"	"HNFF5DSX3"	NA
+"fastq_header"	"lane"	"1"	NA
+"fastq_header"	"tile"	"1101"	NA
+"fastq_header"	"x_pos"	"1886"	NA
+"fastq_header"	"y_pos"	"1000"	NA
+"fastq_header"	"read"	"1"	NA
+"fastq_header"	"is_filtered"	"N"	NA
+"fastq_header"	"control_number"	"0"	NA
+"fastq_header"	"sample_number"	"CCTTCACC+NGAGCGTC"	NA
+"fastq_header"	"sample.id"	"Canton_001"	NA
+"fastq_header"	"omic_result.id"	"omicABC123"	NA
+"variant_report"	"sample.id"	"Canton_001"	NA
+"variant_report"	"rownames"	"chr1:111477748_A/AG"	NA
+"variant_report"	"CHROM"	"chr1"	"Type: Chromosome; Cardinality: 1:1; Value Set: SNOMED CT: 91272006, LOINC:48000-4"
+"variant_report"	"REF"	"A"	"Type: Reference Allele; Cardinality: 1:1; Value Set: string"
+"variant_report"	"ALT"	"AG"	"Type: Alternate Allele; Cardinality: 1:1; Value Set: string"
+"variant_report"	"POS"	"111477748"	"Type: Genomic Position; Cardinality: 1:1; Value Set: GENO:0000902"
+"variant_report"	"start"	"111477748"	NA
+"variant_report"	"end"	"111477748"	NA
+"variant_report"	"width"	"1"	NA
+"variant_report"	"Gene"	"ENSG00000143110"	NA
+"variant_report"	"SYMBOL"	"C1orf162"	NA
+"variant_report"	"HGNC_ID"	"HGNC:28344"	NA
+"variant_report"	"HGVSp"	"ENSP00000358732.3:p.Asp76GlyfsTer37"	NA
+"variant_report"	"HGVSc"	"ENST00000369718.4:c.226dup"	NA
+"variant_report"	"Consequence"	"frameshift_variant"	NA
+"variant_report"	"IMPACT"	"HIGH"	NA
+"variant_report"	"genotype"	"1"	NA
+"variant_report"	"Feature_type"	"Transcript"	NA
+"variant_report"	"Feature"	"ENST00000369718"	NA
+"variant_report"	"BIOTYPE"	"protein_coding"	NA
+"variant_report"	"VARIANT_CLASS"	"insertion"	NA
+"variant_report"	"CANONICAL"	"YES"	NA
+"variant_report"	"omic_result.id"	"omicABC123"	NA

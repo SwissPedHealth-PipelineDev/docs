@@ -1,0 +1,14 @@
+"names"	"observation"	"metadata_requirement"
+"instrument"	"A00485"	NA
+"run_number"	"334"	NA
+"flowcell_ID"	"HNFF5DSX3"	NA
+"lane"	"1"	NA
+"tile"	"1101"	NA
+"x_pos"	"1886"	NA
+"y_pos"	"1000"	NA
+"read"	"1"	NA
+"is_filtered"	"N"	NA
+"control_number"	"0"	NA
+"sample_number"	"CCTTCACC+NGAGCGTC"	NA
+"sample.id"	"Canton_001"	NA
+"omic_result.id"	"omicABC123"	NA

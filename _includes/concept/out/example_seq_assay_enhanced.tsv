@@ -1,0 +1,16 @@
+"names"	"observation"	"metadata_requirement"
+"seq_assay_identifier"	"obo:OBI_002117 (WGS)"	"Type: WGS Identifier; Cardinality: 1:1; Value Set: OBI_002117"
+"seq_assay_intended_read_depth"	"150"	"Type: Read Depth; Cardinality: 1:1; Value Set: integer"
+"seq_assay_intended_read_length"	"20"	"Type: Read Length; Cardinality: 1:1; Value Set: integer"
+"data_file_identifier"	"out.fastq"	"Type: File Identifier; Cardinality: 1:1; Value Set: string"
+"data_file_format"	"edam:format_1931 (FASTQ - Illumina)"	"Type: File Format; Cardinality: 1:1; Value Set: EDAM format_1931 (FASTQ - Illumina)"
+"quality_control_name"	"phred quality score"	"Type: QC Metric Name; Cardinality: 1:1; Value Set: phred quality score"
+"quality_control_value"	"78.33 %"	"Type: QC Metric Value; Cardinality: 1:1; Value Set: percentage"
+"library_prep_kit"	"Illumina TruSeq DNA PCR-Free"	"Type: Library Prep Kit; Cardinality: 1:1; Value Set: Illumina TruSeq DNA PCR-Free"
+"sample_identifier"	"blood_sample_1"	"Type: Sample Identifier; Cardinality: 1:1; Value Set: SNOMED CT"
+"sample_material_type"	"snomed:119297000 (Blood sample)"	"Type: Sample Material Type; Cardinality: 1:1; Value Set: SNOMED 119297000 (Blood sample)"
+"sop_name"	"WGS with Illumina NovaSeq 6000"	"Type: SOP Name; Cardinality: 1:1; Value Set: string"
+"sop_description"	"SOP for WGS with Illumina NovaSeq 6000"	"Type: SOP Description; Cardinality: 1:1; Value Set: string"
+"sop_version"	"v0.1"	"Type: SOP Version; Cardinality: 1:1; Value Set: string"
+"sample.id"	"Canton_001"	NA
+"omic_result.id"	"omicABC123"	NA

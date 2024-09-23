@@ -1,0 +1,329 @@
+[
+  {
+    "dataset": "sequence_assay",
+    "names": "seq_assay_identifier",
+    "observation": "obo:OBI_002117 (WGS)",
+    "metadata_requirement": "Type: WGS Identifier; Cardinality: 1:1; Value Set: OBI_002117"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "seq_assay_intended_read_depth",
+    "observation": "150",
+    "metadata_requirement": "Type: Read Depth; Cardinality: 1:1; Value Set: integer"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "seq_assay_intended_read_length",
+    "observation": "20",
+    "metadata_requirement": "Type: Read Length; Cardinality: 1:1; Value Set: integer"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "data_file_identifier",
+    "observation": "out.fastq",
+    "metadata_requirement": "Type: File Identifier; Cardinality: 1:1; Value Set: string"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "data_file_format",
+    "observation": "edam:format_1931 (FASTQ - Illumina)",
+    "metadata_requirement": "Type: File Format; Cardinality: 1:1; Value Set: EDAM format_1931 (FASTQ - Illumina)"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "quality_control_name",
+    "observation": "phred quality score",
+    "metadata_requirement": "Type: QC Metric Name; Cardinality: 1:1; Value Set: phred quality score"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "quality_control_value",
+    "observation": "78.33 %",
+    "metadata_requirement": "Type: QC Metric Value; Cardinality: 1:1; Value Set: percentage"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "library_prep_kit",
+    "observation": "Illumina TruSeq DNA PCR-Free",
+    "metadata_requirement": "Type: Library Prep Kit; Cardinality: 1:1; Value Set: Illumina TruSeq DNA PCR-Free"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "sample_identifier",
+    "observation": "blood_sample_1",
+    "metadata_requirement": "Type: Sample Identifier; Cardinality: 1:1; Value Set: SNOMED CT"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "sample_material_type",
+    "observation": "snomed:119297000 (Blood sample)",
+    "metadata_requirement": "Type: Sample Material Type; Cardinality: 1:1; Value Set: SNOMED 119297000 (Blood sample)"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "sop_name",
+    "observation": "WGS with Illumina NovaSeq 6000",
+    "metadata_requirement": "Type: SOP Name; Cardinality: 1:1; Value Set: string"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "sop_description",
+    "observation": "SOP for WGS with Illumina NovaSeq 6000",
+    "metadata_requirement": "Type: SOP Description; Cardinality: 1:1; Value Set: string"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "sop_version",
+    "observation": "v0.1",
+    "metadata_requirement": "Type: SOP Version; Cardinality: 1:1; Value Set: string"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "sample.id",
+    "observation": "Canton_001"
+  },
+  {
+    "dataset": "sequence_assay",
+    "names": "omic_result.id",
+    "observation": "omicABC123"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "sample.id",
+    "observation": "Canton_001_NGS000012345_NA_S46_L001"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "FILE1",
+    "observation": "/user/data/wgs/fastp/221031_A00485_1234_AHNFF5DSX3/Canton_001_NGS000012345_NA_S46_L001_R1.fq.gz"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "FILE2",
+    "observation": "/user/data/wgs/fastp/221031_A00485_1234_AHNFF5DSX3/Canton_001_NGS000012345_NA_S46_L001_R2.fq.gz"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "output_file",
+    "observation": "/user/data/wgs/bam/221031_A00485_1234_AHNFF5DSX3/Canton_001_NGS000012345_NA_S46_L001.bam"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "ID",
+    "observation": "Canton_001_NGS000012345_NA_S46_L001"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "SM",
+    "observation": "Canton_001"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "PL",
+    "observation": "NovaSeq6000_WGS_TruSeq"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "PU",
+    "observation": "HNFF5DSX3.1.Canton_001"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "LB",
+    "observation": "Canton_001_NGS000012345"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "RG",
+    "observation": "@RG\\tID:Canton_001_NGS000012345_NA_S46_L001\\tSM:/user/Canton_001\\tPL:NovaSeq6000_WGS_TruSeq\\tPU:HNFF5DSX3.1.Canton_001\\tLB:Canton_001_NGS000012345"
+  },
+  {
+    "dataset": "analysis_report",
+    "names": "omic_result.id",
+    "observation": "omicABC123"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "instrument",
+    "observation": "A00485"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "run_number",
+    "observation": "334"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "flowcell_ID",
+    "observation": "HNFF5DSX3"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "lane",
+    "observation": "1"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "tile",
+    "observation": "1101"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "x_pos",
+    "observation": "1886"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "y_pos",
+    "observation": "1000"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "read",
+    "observation": "1"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "is_filtered",
+    "observation": "N"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "control_number",
+    "observation": "0"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "sample_number",
+    "observation": "CCTTCACC+NGAGCGTC"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "sample.id",
+    "observation": "Canton_001"
+  },
+  {
+    "dataset": "fastq_header",
+    "names": "omic_result.id",
+    "observation": "omicABC123"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "sample.id",
+    "observation": "Canton_001"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "rownames",
+    "observation": "chr1:111477748_A/AG"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "CHROM",
+    "observation": "chr1",
+    "metadata_requirement": "Type: Chromosome; Cardinality: 1:1; Value Set: SNOMED CT: 91272006, LOINC:48000-4"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "REF",
+    "observation": "A",
+    "metadata_requirement": "Type: Reference Allele; Cardinality: 1:1; Value Set: string"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "ALT",
+    "observation": "AG",
+    "metadata_requirement": "Type: Alternate Allele; Cardinality: 1:1; Value Set: string"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "POS",
+    "observation": "111477748",
+    "metadata_requirement": "Type: Genomic Position; Cardinality: 1:1; Value Set: GENO:0000902"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "start",
+    "observation": "111477748"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "end",
+    "observation": "111477748"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "width",
+    "observation": "1"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "Gene",
+    "observation": "ENSG00000143110"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "SYMBOL",
+    "observation": "C1orf162"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "HGNC_ID",
+    "observation": "HGNC:28344"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "HGVSp",
+    "observation": "ENSP00000358732.3:p.Asp76GlyfsTer37"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "HGVSc",
+    "observation": "ENST00000369718.4:c.226dup"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "Consequence",
+    "observation": "frameshift_variant"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "IMPACT",
+    "observation": "HIGH"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "genotype",
+    "observation": "1"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "Feature_type",
+    "observation": "Transcript"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "Feature",
+    "observation": "ENST00000369718"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "BIOTYPE",
+    "observation": "protein_coding"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "VARIANT_CLASS",
+    "observation": "insertion"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "CANONICAL",
+    "observation": "YES"
+  },
+  {
+    "dataset": "variant_report",
+    "names": "omic_result.id",
+    "observation": "omicABC123"
+  }
+]

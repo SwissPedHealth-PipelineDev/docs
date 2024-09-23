@@ -1,0 +1,29 @@
+Sequencing Assay
+identfier:
+code: obo:OBI_002117 (WGS)
+inteded read depth: 150
+indended read length: 20
+
+Data file
+identifier: out.fastq
+format: edam: format_1931 (FASTQ - Illumina)
+
+Quality   Control Metric
+name: phred quality score
+quantitative value: 78.33 %
+
+Library Preparation
+preparation kit: Illumina TruSeq DNA PCR-Free
+
+Sample
+identifier: blood_sample_1
+material type: snomed:119297000 (Blood sample)
+
+Sequencing Instrument
+code: obo: OBI_0002630 (Illumina NovaSeq 6000)
+
+Standard Operating Procedure
+
+name: WGS with Illumina NovaSeq 6000
+description: SOP for WGS with Illumina NovaSeq 6000
+version: v0.1

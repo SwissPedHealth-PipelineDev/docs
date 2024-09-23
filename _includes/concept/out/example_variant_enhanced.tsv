@@ -1,0 +1,24 @@
+"names"	"observation"	"metadata_requirement"
+"sample.id"	"Canton_001"	NA
+"rownames"	"chr1:111477748_A/AG"	NA
+"CHROM"	"chr1"	"Type: Chromosome; Cardinality: 1:1; Value Set: SNOMED CT: 91272006, LOINC:48000-4"
+"REF"	"A"	"Type: Reference Allele; Cardinality: 1:1; Value Set: string"
+"ALT"	"AG"	"Type: Alternate Allele; Cardinality: 1:1; Value Set: string"
+"POS"	"111477748"	"Type: Genomic Position; Cardinality: 1:1; Value Set: GENO:0000902"
+"start"	"111477748"	NA
+"end"	"111477748"	NA
+"width"	"1"	NA
+"Gene"	"ENSG00000143110"	NA
+"SYMBOL"	"C1orf162"	NA
+"HGNC_ID"	"HGNC:28344"	NA
+"HGVSp"	"ENSP00000358732.3:p.Asp76GlyfsTer37"	NA
+"HGVSc"	"ENST00000369718.4:c.226dup"	NA
+"Consequence"	"frameshift_variant"	NA
+"IMPACT"	"HIGH"	NA
+"genotype"	"1"	NA
+"Feature_type"	"Transcript"	NA
+"Feature"	"ENST00000369718"	NA
+"BIOTYPE"	"protein_coding"	NA
+"VARIANT_CLASS"	"insertion"	NA
+"CANONICAL"	"YES"	NA
+"omic_result.id"	"omicABC123"	NA

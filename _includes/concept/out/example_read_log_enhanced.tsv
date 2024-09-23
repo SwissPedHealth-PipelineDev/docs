@@ -1,0 +1,12 @@
+"names"	"observation"	"metadata_requirement"
+"sample.id"	"Canton_001_NGS000012345_NA_S46_L001"	NA
+"FILE1"	"/user/data/wgs/fastp/221031_A00485_1234_AHNFF5DSX3/Canton_001_NGS000012345_NA_S46_L001_R1.fq.gz"	NA
+"FILE2"	"/user/data/wgs/fastp/221031_A00485_1234_AHNFF5DSX3/Canton_001_NGS000012345_NA_S46_L001_R2.fq.gz"	NA
+"output_file"	"/user/data/wgs/bam/221031_A00485_1234_AHNFF5DSX3/Canton_001_NGS000012345_NA_S46_L001.bam"	NA
+"ID"	"Canton_001_NGS000012345_NA_S46_L001"	NA
+"SM"	"Canton_001"	NA
+"PL"	"NovaSeq6000_WGS_TruSeq"	NA
+"PU"	"HNFF5DSX3.1.Canton_001"	NA
+"LB"	"Canton_001_NGS000012345"	NA
+"RG"	"@RG\tID:Canton_001_NGS000012345_NA_S46_L001\tSM:/user/Canton_001\tPL:NovaSeq6000_WGS_TruSeq\tPU:HNFF5DSX3.1.Canton_001\tLB:Canton_001_NGS000012345"	NA
+"omic_result.id"	"omicABC123"	NA

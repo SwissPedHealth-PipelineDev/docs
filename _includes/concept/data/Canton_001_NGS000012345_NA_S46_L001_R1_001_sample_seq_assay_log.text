@@ -1,0 +1,19 @@
+seq_assay_identifier: obo:OBI_002117 (WGS)
+seq_assay_intended_read_depth: 150
+seq_assay_intended_read_length: 20
+
+data_file_identifier: out.fastq
+data_file_format: edam:format_1931 (FASTQ - Illumina)
+
+quality_control_name: phred quality score
+quality_control_value: 78.33 %
+
+library_prep_kit: Illumina TruSeq DNA PCR-Free
+
+sample_identifier: blood_sample_1
+sample_material_type: snomed:119297000 (Blood sample)
+
+seq_instrument_code: obo: OBI_0002630 (Illumina NovaSeq 6000)
+sop_name: WGS with Illumina NovaSeq 6000
+sop_description: SOP for WGS with Illumina NovaSeq 6000
+sop_version: v0.1
