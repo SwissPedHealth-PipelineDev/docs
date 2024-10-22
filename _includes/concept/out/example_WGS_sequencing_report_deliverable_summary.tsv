@@ -1,0 +1,15 @@
+Variable	Observation
+Customer order ID	WNGS00000123
+Number of samples submitted by customer	150
+Number of samples requested by customer for processing	140
+Number of samples sequenced	140
+Contact person(s)	Firstname Surname (Email@address.ch), Firstname Surname (Email@address.ch), Firstname Surname (Email@address.ch)
+Files delivered to	Firstname Surname (Email@address.ch)
+Delivered file types	FastQ
+Requested average MEAN_COVERAGE across samples	30x
+Average MEAN_COVERAGE across samples	34.8 (lowest coverage is 11.4x for sample Canton_003)
+QC analysis checksum	5f4dcc3b5aa765d61d8327deb882cf99
+Timestamp	Jul 01 2023 01:01:01 GMT / v0.9.0
+Report approved by	Firstname Surname
+Comments for customer	None
+Note	Sample 'Canton_009' not requested for sequencing

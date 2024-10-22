@@ -55,8 +55,13 @@ This document is to be updated as we improve the linking of result terms to `SPH
 
 ## Current version
 
-Example output table in html format for variables matched to their SPHN concept.
-This is file  `example_report_concepts.html`:
+The observation column is highlighted in GREEN. 
+It contains the data which we report as output from the pipeline for use in our database 
+Here is the completed concept observations:
+{% include concept/out/example_report_concepts_completed.html %}
+
+Here is the extended incomplete table
+(this is file  `example_report_concepts.html`):
 
 {% include concept/out/example_report_concepts.html %}
 

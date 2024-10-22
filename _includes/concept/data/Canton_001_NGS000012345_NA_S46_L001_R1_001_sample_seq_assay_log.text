@@ -1,6 +1,6 @@
 seq_assay_identifier: obo:OBI_002117 (WGS)
-seq_assay_intended_read_depth: 150
-seq_assay_intended_read_length: 20
+seq_assay_intended_read_depth: 30
+seq_assay_intended_read_length: 150
 
 data_file_identifier: out.fastq
 data_file_format: edam:format_1931 (FASTQ - Illumina)

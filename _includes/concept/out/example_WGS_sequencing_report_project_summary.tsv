@@ -1,0 +1,57 @@
+Variable	Observation
+Project name	WGS_NDS_ProjectName_date
+Customer name andcontact details	n.a.
+         
+         
+         
+            n.a.
+         
+         Email: 
+         
+            n.a.
+First sample reception	Oct 01 2022
+Last sample reception	Oct 01 2022
+Analysis ID	hg38
+Sample type	DNA
+Library protocol	WGS_TruSeq DNA PCR-free (Whole genome sequencing library preparation using the Illumina TruSeq DNA PCR-free reagents)
+Analysis type	WGS
+Reads:	Read1:
+          
+          Read
+           
+          /
+          
+          150
+          
+           
+           
+          Read2:
+          
+          Index
+           
+          /
+          
+          8
+          
+           
+           
+          Read3:
+          
+          Index
+           
+          /
+          
+          8
+          
+           
+           
+          Read4:
+          
+          Read
+           
+          /
+          
+          150
+Mapping reference	GCA_000001405.15_GRCh38_no_alt_analysis_set.fna
+Sequencer model	NovaSeq6000
+Demultiplexing pipeline version	1.1.13
