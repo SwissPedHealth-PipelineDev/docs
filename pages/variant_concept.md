@@ -20,6 +20,9 @@ Last update: 20240920
 
 # Variant features to RDF concept metadata
 
+{: .note }
+This process is starting with `sequencing_assay`, which includes `library_preparation`, `sequencing_run`, etc. We will continue through the pipeline until we reach the final end-point required to report a pathogenic variant. 
+
 This documentation outlines the transformation of variant information from whole genome sequence (WGS) data to a format adhering to RDF structure data concepts. 
 The aim is to ensure that the omic output from genomic analyses can be seamlessly integrated into clinical data warehouses with high fidelity and clarity.
 
@@ -57,11 +60,7 @@ This document is to be updated as we improve the linking of result terms to `SPH
 
 The observation column is highlighted in GREEN. 
 It contains the data which we report as output from the pipeline for use in our database 
-Here is the completed concept observations:
-{% include concept/out/example_report_concepts_completed.html %}
-
-Here is the extended incomplete table
-(this is file  `example_report_concepts.html`):
+Here is the completed concept observations (this is file  `example_report_concepts.html`):
 
 {% include concept/out/example_report_concepts.html %}
 
@@ -73,10 +72,8 @@ Example output (in mutiple filetypes) can be downloaded from the public set:
 |--------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | `example_report_concepts.tsv`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.tsv)  |
 | `example_report_concepts.html`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.html)  |
-| `example_report_concepts.json`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.json)  |
 | `example_report_concepts.Rds`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.Rds)  |
-| `example_report.tsv`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.tsv)  |
-| `example_subset_concepts.tsv`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.tsv)  |
+
 
 Example inputs can be downloaded from the public set:
 
