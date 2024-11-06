@@ -77,6 +77,10 @@ Edges within this hierarchical setup link nodes from Level 1 to Level 2 and from
 <img src="{{ "assets/images/plot_semantic_evidence_plot_network.png" | relative_url }}" width="100%">
 <img src="{{ "assets/images/plot_semantic_evidence_plot_sankey.png" | relative_url }}" width="100%">
 
+assets/images/plot_semantic_evidence_plot_network.pdf
+assets/images/plot_semantic_evidence_plot_network.pdf
+assets/images/plot_semantic_evidence_plot_sankey.html
+assets/images/plot_semantic_evidence_plot_sankey.html
 
 ## Downloads
 
@@ -87,7 +91,12 @@ Example output (in mutiple filetypes) can be downloaded from the public set:
 | `example_report_concepts.tsv`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.tsv)  |
 | `example_report_concepts.html`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.html)  |
 | `example_report_concepts.Rds`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.Rds)  |
-
+| `example_report_concepts.Rds`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.Rds)  |
+| `example_report_concepts.Rds`  | [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/_includes/concept/out/example_report_concepts.Rds)  |
+| `plot_semantic_evidence_plot_network.pdf` |  [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/ssets/images/plot_semantic_evidence_plot_network.pdf) |
+| `plot_semantic_evidence_plot_sankey.pdf`  |  [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/ssets/images/plot_semantic_evidence_plot_sankey.pdf) |
+| `plot_semantic_evidence_plot_network.html` |  [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/ssets/images/plot_semantic_evidence_plot_network.html) |
+| `plot_semantic_evidence_plot_sankey.html`  |  [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/ssets/images/plot_semantic_evidence_plot_sankey.html) |
 
 Example inputs can be downloaded from the public set:
 
