@@ -64,6 +64,20 @@ Here is the completed concept observations (this is file  `example_report_concep
 
 {% include concept/out/example_report_concepts.html %}
 
+## Semantic evidence network
+I have added the following method to automatically plot semantic evidence networks which show how evidence provenance has been generated.
+The dataset is organised into three hierarchical grouping levels based on the column `concept_or_concept_compositions_or_inherited`. 
+The top level, Level 1, includes entries where this column equals "concept". 
+The subsequent levels, Level 2 and Level 3, contain entries where this column does not equal "concept". 
+The distinction between Levels 2 and 3 lies in the presence of distinct observations; Level 3 specifically represents the final observation associated with the general concept names from Level 2, differentiated further by non-empty values in the observation column, making Level 3 essentially a detailed continuation of Level 2.
+
+ Nodes within the network are structured with the following attributes: `general_concept_name`, `id`, `group`, `name`, and `observation`, where `general_concept_name` recurs in both Level 2 and Level 3 but differs based on the associated observation. 
+Edges within this hierarchical setup link nodes from Level 1 to Level 2 and from Level 2 to Level 3 using `general_concept_name` as a consistent link identifier, facilitating a connection between the initial abstract concept level and its more detailed observational breakdowns.
+
+<img src="{{ "assets/images/plot_semantic_evidence_plot_network.png" | relative_url }}" width="100%">
+<img src="{{ "assets/images/plot_semantic_evidence_plot_sankey.png" | relative_url }}" width="100%">
+
+
 ## Downloads
 
 Example output (in mutiple filetypes) can be downloaded from the public set:
