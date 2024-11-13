@@ -94,6 +94,7 @@ Example output (in mutiple filetypes) can be downloaded from the public set:
 | `html plot_semantic_evidence_plot_network.html` |  [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/assets/images/plot_semantic_evidence_plot_network.html) |
 | `html plot_semantic_evidence_plot_sankey.html`  |  [Download](https://github.com/SwissPedHealth-PipelineDev/docs/tree/main/assets/images/plot_semantic_evidence_plot_sankey.html) |
 
+
 Example inputs can be downloaded from the public set:
 
 | File Name                                                             | Download Link                                                                                                                                         |
