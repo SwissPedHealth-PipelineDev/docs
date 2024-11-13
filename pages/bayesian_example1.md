@@ -20,6 +20,12 @@ This doc was built with:
 
 ## Introduction
 
+This example is described in the textbook: Bayesian Data Analysis, by
+Andrew Gelman, John Carlin, Hal Stern, David Dunson, Aki Vehtari, and
+Donald Rubin. Third edition, (BDA3),
+<http://www.stat.columbia.edu/~gelman/book/>. The code is based on a
+version by Aki Vehtari.
+
 In an interesting Bayesian case study, we examine the probability of a
 girl birth among births with the condition placenta previa, where the
 placenta obstructs a normal vaginal delivery. An early study in Germany
