@@ -1,5 +1,5 @@
 ---
-title: "Bayesian probability in placenta previa"
+title: "Bayesian 1 probability in placenta previa"
 output:
   md_document:
     variant: gfm
@@ -13,7 +13,7 @@ math: mathjax
 knitr::opts_chunk$set(echo = TRUE, fig.path='../assets/images/')  # Make sure this path is correct
 ```
 
-# Bayesian - Probability of a girl birth given placenta previa
+# Bayesian: Part 1 Probability of a girl birth given placenta previa
 
 Last update:
 ```{r, date, echo = FALSE}
@@ -50,10 +50,18 @@ The parameter of interest, $$\theta$$, represents the probability of a female bi
 We calculate and plot the posterior distribution of the proportion of $$\theta$$, using uniform prior on $$\theta$$.
 
 
-In Bayesian analysis, especially when dealing with proportions like the probability of a girl birth in this scenario, understanding the entire distribution is crucial. The Beta distribution, being the conjugate prior for binomial likelihoods, is particularly sensitive to the shape parameters ($$\alpha$$ and $$\beta$$), which in this case are derived from the observed data (437 girls, 543 boys) plus one for each due to the uniform prior assumption ($$\alpha = X + 1$$, $$\beta = n - X + 1$$):
+In Bayesian analysis, especially when dealing with proportions like the probability of a girl birth in this scenario, understanding the entire distribution is crucial. The Beta distribution, being the **conjugate prior** for **binomial likelihoods**, is particularly sensitive to the shape parameters ($$\alpha$$ and $$\beta$$), which in this case are derived from the observed data (437 girls, 543 boys) plus one for each due to the uniform prior assumption ($$\alpha = X + 1$$, $$\beta = n - X + 1$$):
 
 - **Alpha (438)**: Represents the number of successes (female births) plus one.
 - **Beta (544)**: Represents the number of failures (male births) plus one.
+
+{: .note }
+
+**Binomial likelihoods**: This relates to scenarios where you have binary data that result from a series of trials with two possible outcomes (like success and failure). For example, flipping a coin multiple times and counting how many times it lands heads is a situation that would use a binomial likelihood because each flip has two possible outcomes (heads or tails).
+
+{: .note }
+
+**Conjugate prior**: A conjugate prior is a special type of prior that, when used with a particular likelihood function (like the binomial likelihood), results in a posterior distribution that is the same type of distribution as the prior. This is useful because it simplifies the mathematical calculations involved in updating beliefs with new data.
 
 
 ```{r Bayes_ex1_dataset, include=TRUE}
@@ -133,40 +141,33 @@ ggplot(mapping = aes(theta, p)) +
 
 #### Calculation Methods
 
-- **Analytical Approach:** Utilising properties of the beta distribution, the posterior mean is 0.446 and the posterior standard deviation is 0.016.
-- **Simulation Approach:** Drawing 1000 samples from the Beta(438, 544) posterior, the sample mean and standard deviation closely match the analytical results.
+- **Analytical approach:** Using properties of the beta distribution, the posterior mean is 0.446 and the posterior standard deviation is 0.016.
+- **Simulation approach:** Drawing 1000 samples from the Beta(438, 544) posterior, the sample mean and standard deviation closely match the analytical results.
 
 #### Confidence Intervals
 
-- **Beta Quantiles:** The 95% confidence interval for $\theta$ from beta properties is [0.415, 0.477].
-- **Simulation-based Estimate:** Using ordered draws, the 95% interval is similarly [0.415, 0.476].
-- **Normal Approximation:** For practical ease, a normal approximation gives [0.414, 0.476], indicating robustness of the estimate.
+- **Beta quantiles:** The 95% confidence interval for $$\theta$$ from beta properties is [0.415, 0.477].
+- **Simulation-based estimate:** Using ordered draws, the 95% interval is similarly [0.415, 0.476].
+- **Normal approximation:** For practical ease, a normal approximation gives [0.414, 0.476], indicating robustness of the estimate.
 
-### Enhanced Precision with Logit Transformation
+### Enhanced precision with logit transformation
 
-Transforming $\theta$ to the logit scale:
+Transforming $$\theta$$ to the logit scale:
 
 $$ \text{logit}(\theta) = \log\left(\frac{\theta}{1-\theta}\right) $$
 
-This transformation stabilises variance, especially beneficial for values of $\theta$ near boundaries. The logit-transformed values follow a normal distribution, allowing us to back-calculate the confidence interval for $\theta$ effectively.
+This transformation stabilises variance, especially beneficial for values of $$\theta$$ near boundaries. The logit-transformed values follow a normal distribution, allowing us to back-calculate the confidence interval for $$\theta$$ effectively.
 
-## Considerations on Prior Sensitivity
+## Considerations on prior sensitivity
 
 Exploring different **conjugate priors** with varying strengths of belief around the general population proportion (0.485), the results show that large sample sizes dilute the influence of these priors, as seen with the posterior distributions retaining similar confidence intervals across various priors.
 
 ## Plotting decision
-The choice of the values for the sequence `seq(0.375, 0.525, 0.001)` in `df1`  is designed to provide a detailed and continuous visualization of the posterior probability density function (pdf) of $$\theta$$ (the probability of a girl birth given placenta previa) over a relevant range of $$\theta$$ values.
+The choice of the values for the sequence `seq(0.375, 0.525, 0.001)` in `df1`  is designed to provide a visualization of the posterior probability density function (pdf) of $$\theta$$ (the probability of a girl birth given placenta previa) over a relevant range of $$\theta$$ values.
 
-- **Start (0.375) and End (0.525)**: These values define the range over which the posterior distribution will be evaluated and plotted. The range is chosen to be slightly broader than the central 95% posterior interval calculated from the Beta distribution (Beta(438, 544)), which is [0.415, 0.477]. This broader range allows the plot to display the tails of the distribution, providing a complete view of how the density behaves towards the edges, which is informative for understanding the distribution's shape and spread.
-- **Relevance to the Data**: The range centers around the expected posterior mean ($$0.446$$) and includes the entire 95% confidence interval, thereby capturing the most statistically significant values of $$\theta$$ under the given model and data.
-
-
-
-
-
-
-
+- **Start (0.375) and end (0.525)**: These values define the range over which the posterior distribution will be evaluated and plotted. The range is chosen to be slightly broader than the central 95% posterior interval calculated from the Beta distribution (Beta(438, 544)), which is [0.415, 0.477]. This broader range allows the plot to display the tails of the distribution, providing a complete view of how the density behaves towards the edges, which is informative for understanding the distribution's shape and spread.
+- **Relevance to the data**: The range centers around the expected posterior mean ($$0.446$$) and includes the entire 95% confidence interval, thereby capturing the most statistically significant values of $$\theta$$ under the given model and data.
 
 ## Conclusion
 
-The Bayesian analysis, robust across several approaches, suggests that the probability of a female birth given placenta previa is less than the general population's proportion. The findings are consistent despite different computational methods and prior assumptions, illustrating the power of Bayesian inference in real-world data interpretation.
+Based on the data, the probability of a female birth given placenta previa is less than the general population's proportion. The findings are consistent despite different computational methods and prior assumptions, illustrating the power of Bayesian inference in real-world data interpretation.
