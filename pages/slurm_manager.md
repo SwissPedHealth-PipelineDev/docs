@@ -83,6 +83,6 @@ By regularly using `squeue` and `sinfo`, users can manage their jobs more effect
 
 {: .note }
 
-When submitting jobs to Slurm, it is crucial to ensure that your resource requests match what is actually available on the system. Requesting resources that exceed the system's capabilities, such as asking for 500GB of memory on a node that offers significantly less, may lead to your job hanging indefinitely without launching or providing any failure notices. To avoid these issues, please use the sinfo command regularly to verify the available resources and configurations on the cluster. This careful checking can help ensure that your job submissions are compatible with the system's capabilities, preventing unnecessary delays.
+When submitting jobs to Slurm, it is crucial to ensure that your resource requests match what is actually available on the system. Requesting resources that exceed the system's capabilities, such as asking for 500GB of memory on a node that offers significantly less, may lead to your job hanging indefinitely without launching or providing any failure notices. To avoid these issues, please use the sinfo command regularly to verify the available resources and configurations on the cluster. This careful checking can help ensure that your job submissions are compatible with the system's capabilities, preventing unnecessary delays. In this case, I belive the `squeue` `NODELIST(REASON)` will show `(Resources)`.
 
 
