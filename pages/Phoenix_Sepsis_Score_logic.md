@@ -54,6 +54,10 @@ read at: International consensus criteria for pediatric sepsis and
 septic shock (Schlapbach et al. 2024). The phoenix R package and Python
 model are available from (DeWitt et al. 2024).
 
+![](../assets/images/Phoenix_decision_tree.png)
+
+Decision tree from (Schlapbach et al. 2024).
+
 ## History
 
 Sepsis definitions have evolved incrementally. We first breifly
@@ -297,7 +301,7 @@ insights into the frequency and categorisation of data points,
 facilitating preliminary assessments of data quality and distribution
 integrity.
 
-![](../pages/Phoenix_Sepsis_Score_logic_files/figure-gfm/plot-1.png)<!-- -->![](../pages/Phoenix_Sepsis_Score_logic_files/figure-gfm/plot-2.png)<!-- -->
+![](../assets/images/plot-1.png)<!-- -->![](../assets/images/plot-2.png)<!-- -->
 
 ## Logic functions for scoring
 
@@ -513,6 +517,10 @@ of national registries.
 - **SOFA**: Sequential Organ Failure Assessment
 - **SpO2**: Oxygen Saturation Measured by Pulse Oximetry (only SpO2 of
   ≤97%)
+
+![](../assets/images/Phoenix_criteria.png)
+
+Criteria table from (Schlapbach et al. 2024).
 
 ## References
 

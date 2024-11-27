@@ -39,9 +39,10 @@ This doc was built with: `rmarkdown::render("Phoenix_Sepsis_Score_logic.Rmd", ou
 
 # Implementing the Phoenix sepsis score
 
+
 ```{r setup, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
 set.seed(123)  # Set seed for reproducibility
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.path='../assets/images/')
 library(ggplot2); theme_set(theme_bw())
 library(dplyr)
 library(stringr)
@@ -55,6 +56,11 @@ This work deomostrates how to implement the Phoenix Sepsis Score criteria for se
 Pediatric sepsis in children (<18 years) with suspected infection can be identified by at least 2 points in the novel Phoenix Sepsis Score, including dysfunction of the respiratory, cardiovascular, coagulation, and/or neurological systems; and septic shock as sepsis with at least 1 cardiovascular point in the Phoenix Sepsis Score.
 These criteria for pediatric sepsis and septic shock are globally applicable.
 The original investigation can be read at: International consensus criteria for pediatric sepsis and septic shock [@schlapbach2024international]. The phoenix R package and Python model are available from [@DeWitt2024phoenix].
+
+![](../assets/images/Phoenix_decision_tree.png)
+
+Decision tree from [@schlapbach2024international].
+
 
 ## History 
 
@@ -433,5 +439,9 @@ Audomated classificaion algorithms may be used to provide a precision medicine a
 - **SIRS**: Systemic inflammatory response syndrome
 - **SOFA**: Sequential Organ Failure Assessment
 - **SpO2**: Oxygen Saturation Measured by Pulse Oximetry (only SpO2 of ≤97%)
+
+![](../assets/images/Phoenix_criteria.png)
+
+Criteria table from [@schlapbach2024international].
 
 ## References
