@@ -234,18 +234,18 @@ typical clinical variations.
 
 ``` r
 # Subject cohort ----
-sample_count <- 100
+sample_count <- 200
 
 # Define min-max ranges for each variable
 PaO2_FiO2_range <- c(100, 450)
-SpO2_FiO2_range <- c(100, 300)
-lactate_range <- c(0.5, 6)
-platelets_range <- c(50000, 450000)
-INR_range <- c(0.8, 3)
+SpO2_FiO2_range <- c(100, 450)
+lactate_range <- c(0.5, 5)
+platelets_range <- c(20000, 450000)
+INR_range <- c(0.8, 3.5)
 d_dimer_range <- c(0, 5)
-fibrinogen_range <- c(50, 500)
+fibrinogen_range <- c(100, 500)
 GCS_range <- c(3, 15)
-age_months_range <- c(1, 200)
+age_months_range <- c(1, 228)
 
 # Generate random data for a given number of subjects
 data <- data.frame(
@@ -270,26 +270,26 @@ print(head(data))
 ```
 
     ##   subject_id PaO2_FiO2 SpO2_FiO2 is_on_IMV lactate
-    ## 1          1    200.65    220.00     FALSE    4.82
-    ## 2          2    375.91    166.56      TRUE    0.55
-    ## 3          3    243.14    197.72     FALSE    4.78
-    ## 4          4    409.06    290.89     FALSE    4.51
-    ## 5          5    429.16    196.58     FALSE    3.97
-    ## 6          6    115.94    278.07      TRUE    3.15
+    ## 1          1    200.65    183.55      TRUE    1.57
+    ## 2          2    375.91    436.83     FALSE    3.59
+    ## 3          3    243.14    310.48      TRUE    1.52
+    ## 4          4    409.06    280.26     FALSE    1.93
+    ## 5          5    429.16    240.90     FALSE    1.28
+    ## 6          6    115.94    408.09     FALSE    4.11
     ##   vasoactive_medications platelets  INR d_dimer
-    ## 1                      2    191442 1.32    4.22
-    ## 2                      2    196577 2.31    1.30
-    ## 3                      2    164840 1.30    0.12
-    ## 4                      0     81989 1.50    4.31
-    ## 5                      0    196182 1.18    1.67
-    ## 6                      2    121206 2.56    3.16
+    ## 1                      2    137658 3.12    1.17
+    ## 2                      0    275363 3.20    1.15
+    ## 3                      3     88879 2.12    0.31
+    ## 4                      3    386975 2.74    2.49
+    ## 5                      2    384528 2.11    1.22
+    ## 6                      0    225491 3.47    3.79
     ##   fibrinogen GCS pupils_reactive age_months
-    ## 1     261.81  10            TRUE         18
-    ## 2     214.63  10           FALSE        182
-    ## 3     104.57   7           FALSE        142
-    ## 4      71.15   7            TRUE        195
-    ## 5     168.26  10            TRUE         92
-    ## 6     485.89   8           FALSE         67
+    ## 1     355.67  12           FALSE        199
+    ## 2     149.93   4            TRUE         26
+    ## 3     202.11  15            TRUE        209
+    ## 4     428.23   8            TRUE        175
+    ## 5     421.51  15            TRUE         37
+    ## 6     118.33  14           FALSE         32
 
 ## Data distribution plots
 
@@ -458,34 +458,34 @@ if ("data" %in% ls() && is.data.frame(data)) {
 print(head(data))
 ```
 
-    ##   subject_id               result total_score
-    ## 1          1         Septic shock           9
-    ## 2          2         Septic shock          10
-    ## 3          3         Septic shock           9
-    ## 4          4               Sepsis           2
-    ## 5          5 Monitor and reassess           1
-    ## 6          6         Septic shock          10
-    ##   PaO2_FiO2 SpO2_FiO2 is_on_IMV lactate
-    ## 1    200.65    220.00     FALSE    4.82
-    ## 2    375.91    166.56      TRUE    0.55
-    ## 3    243.14    197.72     FALSE    4.78
-    ## 4    409.06    290.89     FALSE    4.51
-    ## 5    429.16    196.58     FALSE    3.97
-    ## 6    115.94    278.07      TRUE    3.15
-    ##   vasoactive_medications platelets  INR d_dimer
-    ## 1                      2    191442 1.32    4.22
-    ## 2                      2    196577 2.31    1.30
-    ## 3                      2    164840 1.30    0.12
-    ## 4                      0     81989 1.50    4.31
-    ## 5                      0    196182 1.18    1.67
-    ## 6                      2    121206 2.56    3.16
-    ##   fibrinogen GCS pupils_reactive age_months
-    ## 1     261.81  10            TRUE         18
-    ## 2     214.63  10           FALSE        182
-    ## 3     104.57   7           FALSE        142
-    ## 4      71.15   7            TRUE        195
-    ## 5     168.26  10            TRUE         92
-    ## 6     485.89   8           FALSE         67
+    ##   subject_id       result total_score PaO2_FiO2
+    ## 1          1 Septic shock          10    200.65
+    ## 2          2       Sepsis           2    375.91
+    ## 3          3 Septic shock           7    243.14
+    ## 4          4 Septic shock           8    409.06
+    ## 5          5 Septic shock           7    429.16
+    ## 6          6       Sepsis           3    115.94
+    ##   SpO2_FiO2 is_on_IMV lactate vasoactive_medications
+    ## 1    183.55      TRUE    1.57                      2
+    ## 2    436.83     FALSE    3.59                      0
+    ## 3    310.48      TRUE    1.52                      3
+    ## 4    280.26     FALSE    1.93                      3
+    ## 5    240.90     FALSE    1.28                      2
+    ## 6    408.09     FALSE    4.11                      0
+    ##   platelets  INR d_dimer fibrinogen GCS
+    ## 1    137658 3.12    1.17     355.67  12
+    ## 2    275363 3.20    1.15     149.93   4
+    ## 3     88879 2.12    0.31     202.11  15
+    ## 4    386975 2.74    2.49     428.23   8
+    ## 5    384528 2.11    1.22     421.51  15
+    ## 6    225491 3.47    3.79     118.33  14
+    ##   pupils_reactive age_months
+    ## 1           FALSE        199
+    ## 2            TRUE         26
+    ## 3            TRUE        209
+    ## 4            TRUE        175
+    ## 5            TRUE         37
+    ## 6           FALSE         32
 
 ## Conclustion
 

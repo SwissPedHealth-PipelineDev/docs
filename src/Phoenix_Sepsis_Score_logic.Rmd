@@ -170,18 +170,18 @@ This section details the synthetic generation of patient data, simulating a vari
 
 ```{r data, echo = TRUE, message=FALSE, warning=FALSE}
 # Subject cohort ----
-sample_count <- 100
+sample_count <- 200
 
 # Define min-max ranges for each variable
 PaO2_FiO2_range <- c(100, 450)
-SpO2_FiO2_range <- c(100, 300)
-lactate_range <- c(0.5, 6)
-platelets_range <- c(50000, 450000)
-INR_range <- c(0.8, 3)
+SpO2_FiO2_range <- c(100, 450)
+lactate_range <- c(0.5, 5)
+platelets_range <- c(20000, 450000)
+INR_range <- c(0.8, 3.5)
 d_dimer_range <- c(0, 5)
-fibrinogen_range <- c(50, 500)
+fibrinogen_range <- c(100, 500)
 GCS_range <- c(3, 15)
-age_months_range <- c(1, 200)
+age_months_range <- c(1, 228)
 
 # Generate random data for a given number of subjects
 data <- data.frame(
