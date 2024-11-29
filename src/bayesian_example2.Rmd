@@ -1,5 +1,5 @@
 ---
-title: "Bayesian 2 probability in placenta previa"
+title: "Bayes 2 probability in placenta previa"
 output:
   md_document:
     variant: gfm

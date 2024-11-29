@@ -1,5 +1,5 @@
 ---
-title: "Bayesian discrete probability example in genetics"
+title: "Bayes discrete probability example in genetics"
 output:
   md_document:
     variant: gfm
