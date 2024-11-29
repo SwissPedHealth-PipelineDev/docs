@@ -28,6 +28,10 @@ Bayesian Data Analysis, by Andrew Gelman, John Carlin, Hal Stern, David Dunson, 
 <http://www.stat.columbia.edu/~gelman/book/>, chapter 3.
 The code is based on a version by Aki Vehtari and Markus Paasiniemi.
 
+- **Section 3.2**: Discusses the normal distribution with unknown mean and variance.
+- **Sections 3.4 and 3.5**: Address inference for the multinomial and multivariate normal distributions, the simplest models for discrete and continuous multivariate data, respectively.
+- **Conclusion**: The chapter concludes with an examination of a nonconjugate logistic regression model, implemented via numerical computation of the posterior density on a grid.
+
 ## Introduction to nuisance parameters in Bayesian statistics
 
 In the realm of statistics, nearly every practical problem encompasses multiple unknown or unobservable quantities. The simplicity of the Bayesian approach shines when managing such complexities, offering clear advantages over alternative methods of inference. Often, although a problem may present several parameters of interest, attention is usually focused on just one or a few.
@@ -65,19 +69,6 @@ These parameters are typically referred to as *nuisance parameters*.
 
 **Example**: An exemplary instance of nuisance parameters is the scale of random errors in measurement problems.
 
-### Coverage of nuisance parameters
-
-- **Section 3.2**: Discusses the normal distribution with unknown mean and variance.
-- **Sections 3.4 and 3.5**: Address inference for the multinomial and multivariate normal distributions, the simplest models for discrete and continuous multivariate data, respectively.
-- **Conclusion**: The chapter concludes with an examination of a nonconjugate logistic regression model, implemented via numerical computation of the posterior density on a grid.
-
-
-
-
-
-
-
-
 
 
 
@@ -91,25 +82,6 @@ These parameters are typically referred to as *nuisance parameters*.
 
 
 ## Averaging over ‘Nuisance Parameters’
-
-To express the ideas of joint and marginal posterior distributions mathematically, suppose $$\theta$$ has two parts, each of which can be a vector, $$\theta = (\theta_1, \theta_2)$$, and further suppose that we are only interested (at least for the moment) in inference for $$\theta_1$$, so $$\theta_2$$ may be considered a ‘nuisance’ parameter. For instance, in the simple example,
-
-$$
-y \mid \mu, \sigma^2 \sim \mathcal{N}(\mu, \sigma^2),
-$$
-
-in which both $$\mu$$ (equivalent to $$\theta_1$$) and $$\sigma^2$$ (equivalent to $$\theta_2$$) are unknown, interest commonly centers on $$\mu$$. We seek the conditional distribution of the parameter of interest given the observed data; in this case, $$p(\theta_1 \mid y)$$. This is derived from the joint posterior density, 
-
-$$
-p(\theta_1, \theta_2 \mid y) \propto p(y \mid \theta_1, \theta_2)p(\theta_1, \theta_2),
-$$
-
-by averaging over $$\theta_2$$:
-
-$$
-p(\theta_1 \mid y) = \int p(\theta_1, \theta_2 \mid y) \, d\theta_2.
-$$
-
 
 {: .important-title }
 
@@ -130,6 +102,86 @@ $$
 >
 > $$\mathcal{N}(\mu, \sigma^2)$$: Normal distribution with mean $$\mu$$ and variance $$\sigma^2$$.
 
+To express the ideas of joint and marginal posterior distributions mathematically, suppose $$\theta$$ has two parts, each of which can be a vector, $$\theta = (\theta_1, \theta_2)$$, and further suppose that we are only interested (at least for the moment) in inference for $$\theta_1$$, so $$\theta_2$$ may be considered a ‘nuisance’ parameter. For instance, in the simple example,
+
+$$
+y \mid \mu, \sigma^2 \sim \mathcal{N}(\mu, \sigma^2),
+$$
+
+in which both $$\mu$$ (equivalent to $$\theta_1$$) and $$\sigma^2$$ (equivalent to $$\theta_2$$) are unknown, interest commonly centers on $$\mu$$. We seek the conditional distribution of the parameter of interest given the observed data; in this case, $$p(\theta_1 \mid y)$$. This is derived from the joint posterior density, 
+
+$$
+p(\theta_1, \theta_2 \mid y) \propto p(y \mid \theta_1, \theta_2)p(\theta_1, \theta_2),
+$$
+
+by averaging over $$\theta_2$$:
+
+$$
+p(\theta_1 \mid y) = \int p(\theta_1, \theta_2 \mid y) \, d\theta_2.
+$$
+
+Alternatively, the joint posterior density can be factored to yield
+
+$$
+\begin{equation}
+p(\theta_1 \mid y) = \int Z p(\theta_1 \mid \theta_2, y) p(\theta_2 \mid y) d\theta_2, \tag{1}\label{eq:one}
+\end{equation}
+$$
+
+which shows that the posterior distribution of interest, $$p(\theta_1 \mid y)$$, is a mixture of the conditional posterior distributions given the nuisance parameter, $$\theta_2$$, where $$p(\theta_2 \mid y)$$ is a weighting function for the different possible values of $$\theta_2$$. The weights depend on the posterior density of $$\theta_2$$ and thus on a combination of evidence from data and prior model. The averaging over nuisance parameters $$\theta_2$$ can be interpreted generally; for example, $$\theta_2$$ can include a discrete component representing different possible sub-models.
+
+We rarely evaluate the integral (eqn \\ref{eq:one}) explicitly, but it suggests an important practical strategy for both constructing and computing with multiparameter models. Posterior distributions can be computed by marginal and conditional simulation, first drawing $$\theta_2$$ from its marginal posterior distribution and then $$\theta_1$$ from its conditional posterior distribution, given the drawn value of $$\theta_2$$. In this way, the integration embodied in (eqn \\ref{eq:one}) is performed indirectly. A canonical example of this form of analysis is provided by the normal model with unknown mean and variance, to which we now turn.
+
+### Explanation of averaging over nuisance parameters
+
+Let's break down the equation to show how the joint posterior distribution is constructed from the likelihood and the prior distribution.
+
+#### Objective
+To derive the marginal posterior distribution of $$\theta_1$$ by integrating out $$\theta_2$$, considered a nuisance parameter, from the joint posterior distribution.
+
+#### Step-by-step breakdown
+
+1. **Joint posterior distribution**:
+   - **Equation**:
+     $$
+     p(\theta_1, \theta_2 \mid y) \propto p(y \mid \theta_1, \theta_2) \times p(\theta_1, \theta_2)
+     $$
+   - **Explanation**: This formula shows the joint posterior distribution as a product of the likelihood of the data given the parameters and the prior beliefs about these parameters. The term "proportional to" indicates that after considering the likelihood and prior, the result must be normalised to ensure it sums to one across all possible values of $$\theta_1$$ and $$\theta_2$$.
+
+2. **Visual breakdown**:
+   - **Prior layer**: Represents initial beliefs about the parameters before seeing the data.
+   - **Likelihood layer**: Adjusts beliefs based on how likely the observed data is under various parameter values.
+   - **Normalisation**: Ensures the total probability across all parameter values equals one.
+
+3. **Marginal posterior distribution**:
+   - **Equation**:
+     $$
+     p(\theta_1 \mid y) = \int p(\theta_1, \theta_2 \mid y) \, d\theta_2
+     $$
+   - **Explanation**: By integrating out $$\theta_2$$, this operation focuses solely on $$\theta_1$$, summing over all potential influences of $$\theta_2$$ to isolate the effect on $$\theta_1$$. This represents averaging over all possible values of $$\theta_2$$, which adjusts $$\theta_1$$'s distribution to reflect its combined impact.
+
+4. **Factorisation and practical computation**:
+   - **Equation**:
+     $$
+     p(\theta_1 \mid y) = \int Z p(\theta_1 \mid \theta_2, y) p(\theta_2 \mid y) d\theta_2
+     $$
+   - **Components**:
+     - $$p(\theta_1 \mid \theta_2, y)$$: The conditional posterior of $$\theta_1$$ given $$\theta_2$$ and data.
+     - $$p(\theta_2 \mid y)$$: Acts as a weighting function in the integration, representing the marginal posterior of $$\theta_2$$.
+   - **Explanation**: This factorisation views the marginal posterior as a weighted average of conditional posteriors, emphasising a practical simulation-based method to handle complex integrations.
+
+5. **Simulation as a practical solution**:
+   - **Procedure**:
+     - **Draw $$\theta_2$$**: From its marginal posterior distribution.
+     - **Draw $$\theta_1$$**: From the conditional distribution given the sampled $$\theta_2$$.
+   - **Explanation**: This simulation effectively performs the integration by sampling, which is useful when direct computation is infeasible or impractical.
+
+### Visual breakdown
+To visualise how these components come together, you can think of it as layers:
+
+- **Base layer (Prior distribution)**: Start with your initial beliefs about the parameters (before seeing the data).
+- **Middle layer (Likelihood)**: Adjust these beliefs by the likelihood of the observed data under various parameter values.
+- **Top layer (Normalisation)**: Scale the result so that the total probability across all parameter values equals 1.
 
 
 ## Normal model with unknown mean and variance (BDA3 section 3.2 on p. 64).
