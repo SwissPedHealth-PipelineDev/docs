@@ -26,7 +26,7 @@ Altman and Bland mention that this method was developed in the 1950s for evaluat
 An aside for history buffs, from [wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic):
 > The ROC curve was first used during World War II for the analysis of radar signals before it was employed in signal detection theory.[56] Following the attack on Pearl Harbor in 1941, the United States army began new research to increase the prediction of correctly detected Japanese aircraft from their radar signals. For these purposes they measured the ability of a radar receiver operator to make these important distinctions, which was called the Receiver Operating Characteristic.[57]
 
-<img src="{{ site.baseurl }}{% link assets/images/receiver_operating_characteristic_plots.png %}" width="100%">
+<img src="{{ "assets/images/receiver_operating_characteristic_plots.png" | relative_url }}" width="100%">
 
 The example shown in Figure 1 uses graft versus host disease, with an index measurement whose definition is not important.
 The _Yes_ indicate _cases_ and _No_ indicate _controls_ in our terminology, respectively. 
@@ -81,7 +81,7 @@ $$\frac{\text{No. cases above cutoff} + \text{No. controls below cutoff }}{ \tex
 ## Example ROC cuvre
 To implement this method, I include here an example in R code.
 
-<img src="{{ site.baseurl }}{% link assets/images/receiver_operating_characteristic_curve.png %}" width="100%">
+<img src="{{ "assets/images/receiver_operating_characteristic_curve.png" | relative_url }}" width="100%">
 
 ``` R
 # Modified example from https://stackoverflow.com/questions/31138751/roc-curve-from-training-data-in-caret

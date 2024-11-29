@@ -23,7 +23,7 @@ For more similar papers see the series of BMJ statistical notes by Altman & Blan
 ## The fianl comparison results
 ### Scores per sample and Bland-Altman plot
 
-<img src="{{ site.baseurl }}{% link assets/images/altman_bland_analysis_of_methods.png %}" width="100%">
+<img src="{{ "assets/images/altman_bland_analysis_of_methods.png" | relative_url }}" width="100%">
 **Figure 1.** Scores per sample and Bland-Altman plot as produced by the provided R code.
 
 ### Correlation test result and repeatability coefficients

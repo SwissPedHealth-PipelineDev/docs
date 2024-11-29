@@ -95,7 +95,7 @@ Table II. Analysis of variance for the data in table I (as shown in Altman & Bla
 Incorrectly calculating the correlation coefficient 
 by ignoring the fact that we have 47 observations on only 8 subjects, would produce -0.07, P=0.7. 
 
-<img src="{{ site.baseurl }}{% link assets/images/altman_bland_repeated_observations.png %}" width="100%">
+<img src="{{ "assets/images/altman_bland_repeated_observations.png" | relative_url }}" width="100%">
 **Figure 1.** Recreation of "(Y) pH against (X) PaCO2 for eight subjects, with parallel lines fitted for each subject" as used in 
 bland1995statistics.
 Interestingly, replotting this data shows that their figure was not fully accurate (forgivable before the days of Rstudio in 1995, and not important for this example).

@@ -11,6 +11,8 @@ do
 
 # Use sed to transform the file content as required and save it to the new location
 sed -e 's/layout: topic/layout: default/' \
+-e 's/{{ site.baseurl }}{% link \(.*\) %}"/{{ "assets\/\1"/' \
+-e 's/" width="100%">/" | relative_url }}" width="100%">/' \
 -e '1a\
 nav_order: 5' \
 -e '1a\
