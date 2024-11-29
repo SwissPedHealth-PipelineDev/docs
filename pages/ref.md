@@ -3,6 +3,7 @@ layout: default
 title: Reference genome
 date: 2023-07-27 00:00:01
 nav_order: 5
+toc: true
 ---
 
 # Reference genome

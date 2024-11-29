@@ -6,6 +6,7 @@ theme: just-the-docs
 # remote_theme: hydecorp/hydejack@v9 logo: "/assets/images/pipedev_logo_1.png"
 # ![Pipe Dev logo](/assets/images/pipedev_logo_1.png "logo")
 
+
 aux_links:
   Github: https://github.com/SwissPedHealth-PipelineDev/docs
   SwissPedHealth.ch: https://www.swisspedhealth.ch
