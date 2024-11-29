@@ -13,7 +13,7 @@ math: mathjax
 
 Last update:
 
-    ## [1] "2024-11-17"
+    ## [1] "2024-11-29"
 
 This doc was built with:
 `rmarkdown::render("Bayesian_example2.Rmd", output_file = "../pages/bayesian_example2.md")`
