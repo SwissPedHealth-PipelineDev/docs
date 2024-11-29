@@ -1,0 +1,124 @@
+---
+title: "Documentation log count"
+output:
+  md_document:
+    variant: gfm
+    preserve_yaml: true
+layout: default
+nav_order: 6
+math: mathjax
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.path='../assets/images/')
+```
+
+# Documentation log count
+
+Last update:
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+print(Sys.Date())
+```
+
+This doc was built with: `rmarkdown::render("file_count.Rmd", output_file = "../pages/file_count.md")`
+
+Below is the latest count of documentation pages. 
+This figure is updated sporadically to track the current page count and estimated growth rate.
+This count only considers the main sources in `./pages` but ignores other code pages, images, etc. 
+
+
+```{r word-count,  echo=FALSE, message=FALSE, warning=FALSE}
+library(purrr)
+library(lubridate)
+library(ggplot2)
+library(dplyr)
+library(broom)
+library(patchwork)
+
+# Set the path to the directory containing the Markdown files
+directory_path <- "../pages/"
+
+# List all Markdown files in the directory
+md_files <- list.files(path = directory_path, pattern = "\\.md$", full.names = TRUE)
+
+# Define a function to count lines and words in a file
+count_lines_words <- function(file_path) {
+  lines <- readLines(file_path)
+  word_count <- sum(sapply(lines, function(line) length(strsplit(line, "\\s+")[[1]])))
+  line_count <- length(lines)
+  data.frame(FileName = basename(file_path), LineCount = line_count, WordCount = word_count)
+}
+
+# Apply the function to each Markdown file and bind the results into a single data frame
+results <- map_df(md_files, count_lines_words)
+# sum(results$LineCount)
+# sum(results$WordCount)
+```
+
+
+```{r file_count_plot, echo=FALSE, message=FALSE, warning=FALSE}
+
+# Load the data from the log file
+df <- read.table(file = "./file_counts/file_count_log.md",
+                 header = FALSE,
+                 col.names = c("Date", "FileCount"))
+
+# Convert the date from 'YYYYMMDD' to a Date object
+df$Date <- ymd(df$Date)
+
+# Convert Date to numeric for regression
+df$DateNumeric <- as.numeric(df$Date)
+
+# Linear regression to estimate growth rate
+fit <- lm(FileCount ~ DateNumeric, data = df)
+# summary(fit)  # Show summary of regression
+
+# Extracting the estimated growth rate per day
+growth_rate <- coef(fit)["DateNumeric"]  # Slope coefficient
+annual_growth_rate <- growth_rate * 365  # Convert daily rate to annual rate
+
+# Plotting the data with the regression line
+p1 <- df %>%
+  ggplot(aes(x = Date, y = FileCount)) +
+  geom_point() +  # Plot points
+  geom_line() +   # Connect points with line
+   geom_smooth(method="lm", color="grey", alpha=0.2)  +  # Regression line
+  theme_bw() +    # Use a minimalistic theme
+  labs(title = "Number of documentation pages over time",
+       x = "Date",
+       y = "Number of independent pages",
+       subtitle = paste0("Estimated annual growth rate: ", round(annual_growth_rate, 2), "pages/year", 
+                         "\nCurrent page count: ", max(df$FileCount),
+                         "\nTotal line count: ", sum(results$LineCount),
+                         "\nTotal word count: ", sum(results$WordCount)
+))  # Add labels and subtitle
+
+# Display the plot
+print(p1)
+
+# Display regression summary as part of the document output
+cat("Regression Summary:\n")
+print(summary(fit))
+
+# Print the estimated annual growth rate
+cat("Estimated Annual Growth Rate (pages/year):", round(annual_growth_rate, 2))
+cat("Current count:", max(df$FileCount))
+```
+
+
+```{r word-count-plots,  echo=FALSE, message=FALSE, warning=FALSE}
+# Plotting Line Count Histogram
+p1 <- ggplot(results, aes(x = LineCount)) +
+  geom_histogram( color = "black") +
+  labs(title = "Histogram of line counts", x = "Line lount", y = "Frequency") +
+  theme_minimal()
+
+# Plotting Word Count Histogram
+p2 <- ggplot(results, aes(x = WordCount)) +
+  geom_histogram(color = "black") +
+  labs(title = "Histogram of word counts", x = "Word count", y = "Frequency") +
+  theme_minimal()
+
+# Print the plots
+print(p1 + p2)
+```

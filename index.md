@@ -117,6 +117,12 @@ However, this `docs` repo is a standalone repository within the SwissPedHealth-P
 We can use the special styles for `{: .note }` and `{: .warning }` by adding this code before a paragraph.
 
 
+## Documentation growth
+We intermittently track the [documentation log count](pages/file_count.html).
+
+![](../assets/images/file_count_plot-1.png)
+
+
 ![img]({{ "assets/images/logos/SwissPedHealth_Pipeline_Devs_wide_2.png" | relative_url }})
 
 
