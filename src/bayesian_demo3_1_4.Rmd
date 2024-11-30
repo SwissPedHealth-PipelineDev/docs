@@ -17,8 +17,12 @@ Last update:
 print(Sys.Date())
 ```
 
-```{r setup, include=FALSE}
+```{r setup, echo=FALSE, warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.path='../assets/images/')
+library(ggplot2); theme_set(theme_bw())
+library(grid)
+library(gridExtra)
+library(tidyr)
 ```
 
 This doc was built with: `rmarkdown::render("bayesian_demo3_1_4.Rmd", output_file = "../pages/bayesian_multiparameter_models.md")`
@@ -176,97 +180,54 @@ To derive the marginal posterior distribution of $$\theta_1$$ by integrating out
      - **Draw $$\theta_1$$**: From the conditional distribution given the sampled $$\theta_2$$.
    - **Explanation**: This simulation effectively performs the integration by sampling, which is useful when direct computation is infeasible or impractical.
 
-### Visual breakdown
 To visualise how these components come together, you can think of it as layers:
 
 - **Base layer (Prior distribution)**: Start with your initial beliefs about the parameters (before seeing the data).
 - **Middle layer (Likelihood)**: Adjust these beliefs by the likelihood of the observed data under various parameter values.
 - **Top layer (Normalisation)**: Scale the result so that the total probability across all parameter values equals 1.
 
+### Step-by-step visualization 
 
+The goal of these visualizations is to explore the effects of the nuisance parameter $$\theta_2$$ on the distribution of $$\theta_1$$. We first observe the overall distribution of $$\theta_2$$ and then focus on how specific values influence $$\theta_1$$.
 
+#### Step 1: Visualizing the distribution of $$\theta_2$$
 
-
-
-
-
-
-
-```{r}
-# # Assuming you have a data frame `data` with columns theta1 and theta2
-# library(ggplot2)
-# library(dplyr)
-# 
-# # Simulate some data
-# set.seed(123)
-# data <- data.frame(
-#   theta1 = rnorm(1000),
-#   theta2 = rnorm(1000)
-# )
-# 
-# # Create a ggplot histogram conditional on slices of theta2
-# p <- ggplot(data, aes(x = theta1)) +
-#   geom_histogram(binwidth = 0.1, fill = "blue", alpha = 0.5) +
-#   facet_wrap(~cut(theta2, breaks = 5)) + # Creates 5 slices of theta2
-#   labs(title = "Conditional distributions of theta1 given slices of theta2")
-# 
-# p
-# 
-# # Calculate the average of theta1 for each slice of theta2
-# averages <- data %>%
-#   group_by(Group = cut(theta2, breaks = 5)) %>%
-#   summarise(AverageTheta1 = mean(theta1))
-# 
-# # Overall average to represent marginal distribution of theta1
-# overall_average <- mean(averages$AverageTheta1)
-# 
-# print(overall_average)
-# 
-
-```
-
-### Step-by-Step Visualization using ggplot2 in R
-
- Let's break down the steps to visualize the distribution of \(\theta_2\) first, and then show how specific slices (or bars) of \(\theta_2\) affect the results for \(\theta_1\) using a different color.
-
-
-#### Step 1: Visualize the Distribution of \(\theta_2\)
-
-First, create a histogram to visualize the overall distribution of the nuisance parameter \(\theta_2\), which will help in understanding its range and common values.
+We start by drawing a histogram to understand the typical range and distribution of $$\theta_2$$. This visualization helps identify the common values and the spread of $$\theta_2$$. For detailed analysis, we specifically highlight the bar at $$x = 1$$ to observe its frequency and to mark it for further scrutiny.
 
 ```{r}
-library(ggplot2)
-
-# # Simulate some data
+# Simulate some data
 set.seed(123)
 data <- data.frame(
   theta1 = rnorm(10000),
   theta2 = rnorm(10000)
 )
-
-
-# Assuming 'data' is already loaded
-# Plot the distribution of theta2
-p_theta2 <- ggplot(data, aes(x = theta2)) +
-  geom_histogram(binwidth = 0.1, fill = "grey", alpha = 0.7) +
-  labs(title = "Distribution of theta2 (Nuisance Parameter)")
-
-p_theta2
 ```
 
-Great! Let’s adapt your R code to redraw the histogram from Step 1 using `geom_bar()` to exactly replicate the histogram, allowing for manual adjustments like highlighting a specific bar. Then, we'll move on to Step 2 to show the effects on \(\theta_1\) with the highlighted \(\theta_2\) range.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 
-### Step 1: Redraw with `geom_bar()` and Highlight a Specific Bar
+# Assuming 'data' is already loaded
+# Plot the distributions
 
-To use `geom_bar()`, you need to pre-calculate the histogram counts. This method gives you more control over the appearance of individual bars, such as highlighting a specific bar at \(x=0\).
+p_theta1 <- ggplot(data, aes(x = theta1)) +
+  geom_histogram(binwidth = 0.1, fill = "#71BAD2", alpha = 0.7) +
+  labs(title = "Distribution of theta1\n")
 
-```{r}
+p_theta2 <- ggplot(data, aes(x = theta2)) +
+  geom_histogram(binwidth = 0.1, fill = "#FFC387", alpha = 0.7) +
+  labs(title = "Distribution of theta2\n(Nuisance Parameter)")
+
+
+# Not shown 
+# p_theta2
+
+# Not shown 
+library(patchwork)
+print(p_theta1 + p_theta2)
+```
+
+```{r,echo=FALSE, warning=FALSE, message=FALSE}
 # Calculate histogram data
-library(ggplot2)
-library(dplyr)
-
-library(ggplot2)
-library(dplyr)
+# To use `geom_bar()`, you need to pre-calculate the histogram counts. This method gives you more control over the appearance of individual bars, such as highlighting a specific bar at $$x=0$$.
 
 # Assuming 'data' is already loaded with theta2
 # Calculate histogram bins manually
@@ -278,109 +239,60 @@ theta2_bins <- data %>%
 
 # Draw the histogram with geom_bar
 p_theta2_bar <- ggplot(theta2_bins, aes(x = bin, y = count)) +
-  geom_bar(stat = "identity", fill = ifelse(theta2_bins$bin == 1, "red", "grey"), alpha = 0.7) +
-  labs(title = "Distribution of theta2 (Nuisance Parameter) with Highlight on x=1")
+  geom_bar(stat = "identity", fill = ifelse(theta2_bins$bin == 1, "red", "#FFC387"), alpha = 0.7) +
+  labs(title = "Distribution of theta2 (Nuisance parameter) with highlight on x=1", x = "theta2")
 
 p_theta2_bar
 
 ```
 
-This approach calculates the bin counts first and then uses `geom_bar()` to plot these counts. The `ifelse()` function is used to change the fill color of the bar at \(x=0\) to red, while other bars remain grey.
 
-### Step 2: Show the Effect of Highlighted \(\theta_2\) on \(\theta_1\)
+#### Step 2: Examining the effect of a highlighted $$\theta_2$$ on $$\theta_1$$
 
-For this step, since you want to visualize the impact of all \(\theta_2\) slices and particularly the highlighted one, we continue using the setup from the previous version of Step 2, but ensure the highlighted slice includes the specific \(\theta_2\) at \(x=0\).
+Next, we demonstrate how varying $$\theta_2$$ affects $$\theta_1$$ by creating conditional histograms. We highlight the range around $$x = 1$$ to see how $$\theta_1$$ behaves when $$\theta_2$$ is near this specific value. This step visualizes the conditional effects of $$\theta_2$$ on $$\theta_1$$ across different slices, with a particular focus on the highlighted region.
 
-```{r}
 
-# Define the range of theta2 to highlight
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+# Define the range of theta2 to highlight around 1
 highlight_range <- c(0.95, 1.05)  # Narrow range around 1
 
+# Enhance data with a slicing variable, and compute the minimum theta2 value per slice for ordering
+data <- data %>%
+  mutate(
+    slice = cut(theta2, breaks = 12, include.lowest = TRUE)
+  ) %>%
+  group_by(slice) %>%
+  mutate(min_theta2 = min(theta2)) %>%
+  ungroup() %>%
+  arrange(min_theta2) %>%
+  # Convert slice to an ordered factor based on the sorted min_theta2
+  mutate(slice = factor(slice, levels = unique(slice)))
 
 # Create conditional histograms of theta1
 p_conditional_highlight <- ggplot(data, aes(x = theta1)) +
   # Histogram for values outside the highlighted range (blue)
   geom_histogram(data = subset(data, theta2 < highlight_range[1] | theta2 > highlight_range[2]),
-                 binwidth = 0.1, fill = "blue", alpha = 0.5) +
+                 binwidth = 0.1, fill = "#71BAD2", alpha = 0.9) +
   # Histogram for values within the highlighted range (red)
   geom_histogram(data = subset(data, theta2 >= highlight_range[1] & theta2 <= highlight_range[2]),
-                 binwidth = 0.1, fill = "red", alpha = 0.7) +
-  facet_wrap(~cut(theta2, breaks = 5), scales = "free_y") +  # Free scales to emphasize differences
+                 binwidth = 0.1, fill = "red", alpha = 0.8) +
+  facet_wrap(~slice, scales = "free_y") +
   labs(title = "Conditional distributions of theta1 given slices of theta2",
        subtitle = "Highlighted range includes theta2 around x=1")
 
 p_conditional_highlight
 ```
 
-```{r}
-# Enhance data with a highlighting condition column
-data <- data %>%
-  mutate(highlight = ifelse(theta2 >= highlight_range[1] & theta2 <= highlight_range[2], "Highlighted", "Normal"))
+Integrating out $$\theta_2$$ in Bayesian analysis is about marginalizing over this parameter to refine our estimates for $$\theta_1$$. This involves averaging over all possible values of $$\theta_2$$, where each value is weighted by its likelihood:
 
-# Create conditional histograms of theta1, ordered by theta2 values
-p_conditional_highlight <- ggplot(data, aes(x = theta1, fill = highlight)) +
-  geom_histogram(binwidth = 0.1, alpha = 0.7, position = "identity") +
-  scale_fill_manual(values = c("Normal" = "blue", "Highlighted" = "red")) +
-  facet_wrap(~cut(theta2, breaks = 5), scales = "free_y") +  # Free scales to emphasize differences
-  labs(title = "Conditional distributions of theta1 given slices of theta2",
-       subtitle = "Includes highlighted range for theta2 around x=1")
-
-p_conditional_highlight
+- **Highlighting an example value**: By highlighting $$x = 1$$ in the visualizations, we're not limiting our analysis to this point but rather using it to exemplify how specific values within the range of $$\theta_2$$ can influence the outcome for $$\theta_1$$. It serves as a focal point for comparison.
+- **Complete integration**: The full integration over $$\theta_2$$ considers every part of its distribution. Each histogram slice contributes to a comprehensive understanding of how $$\theta_1$$ is influenced by the entire spectrum of $$\theta_2$$.
 
 
-```
-
-```{r}
-library(ggplot2)
-library(dplyr)
-library(patchwork)
-
-# Assuming 'data' is already loaded
-# Define the range of theta2 to highlight around 1
-highlight_range <- c(0.95, 1.05)  # Narrow range around 1
-
-# Enhance data with a slice index for more granular control
-data <- data %>%
-  mutate(slice = cut(theta2, breaks = 5))  # Creating slices for more targeted plots
-
-# List to store plots
-plot_list <- list()
-
-# Generate a plot for each slice
-slices <- levels(data$slice)
-for (slice in slices) {
-  slice_data <- subset(data, slice == slice)
-  p <- ggplot(slice_data, aes(x = theta1)) +
-    geom_histogram(data = subset(slice_data, theta2 < highlight_range[1] | theta2 > highlight_range[2]),
-                   binwidth = 0.1, fill = "blue", alpha = 0.5) +
-    geom_histogram(data = subset(slice_data, theta2 >= highlight_range[1] & theta2 <= highlight_range[2]),
-                   binwidth = 0.1, fill = "red", alpha = 0.7) +
-    # labs(title = paste("Conditional distributions for", slice),
-         # subtitle = "Red highlights theta2 around x=1") +
-    theme_minimal() +
-    theme(legend.position = "none")  # Remove legend to save space
-  plot_list[[slice]] <- p
-}
-
-# Combine all plots using patchwork
-combined_plot <- plot_list[[1]]  # Start with the first plot
-for (i in 2:length(plot_list)) {
-  combined_plot <- combined_plot + plot_list[[i]]  # Add the rest of the plots
-}
-combined_plot <- combined_plot + plot_layout(ncol = 1)  # Adjust layout as needed
-
-# Print the combined plot
-print(combined_plot)
 
 
-```
 
-#### Explanation:
-
-- **Histogram Redrawing**: By manually calculating the histogram and plotting with `geom_bar()`, you gain precise control over which bars to highlight, making it easier to direct attention to specific values of \(\theta_2\).
-- **Conditional Histograms**: These plots now include a specific emphasis on the slice containing \(\theta_2 = 0\), visually demonstrating how this particular value influences the distribution of \(\theta_1\).
-
-This method enhances the visual clarity of how specific values of the nuisance parameter \(\theta_2\) influence the parameter of interest, \(\theta_1\), and allows for a detailed exploration of the effects within a Bayesian framework.
 
 
 
@@ -390,14 +302,6 @@ Multivariate joint distribution, conditional distribution, marginal
 distribution, marginalization and posterior predictive distribution
 
 ggplot2, grid, and gridExtra are used for plotting, tidyr for manipulating data frames
-
-```{r load, message=FALSE, error=FALSE, warning=FALSE}
-library(ggplot2)
-theme_set(theme_minimal())
-library(grid)
-library(gridExtra)
-library(tidyr)
-```
 
 #### Generic part common for Demos 3.1-3.4
 Data

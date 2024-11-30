@@ -14,7 +14,7 @@ math: mathjax
 
 Last update:
 
-    ## [1] "2024-11-29"
+    ## [1] "2024-11-30"
 
 This doc was built with:
 `rmarkdown::render("bayesian_demo3_1_4.Rmd", output_file = "../pages/bayesian_multiparameter_models.md")`
@@ -170,9 +170,9 @@ computed by marginal and conditional simulation, first drawing
 $$\theta_2$$ from its marginal posterior distribution and then
 $$\theta_1$$ from its conditional posterior distribution, given the
 drawn value of $$\theta_2$$. In this way, the integration embodied in
-(eqn ) is performed indirectly. A canonical example of this form of
-analysis is provided by the normal model with unknown mean and variance,
-to which we now turn.
+(eqn \ref{eq:one}) is performed indirectly. A canonical example of this
+form of analysis is provided by the normal model with unknown mean and
+variance, to which we now turn.
 
 ### Explanation of averaging over nuisance parameters
 
@@ -237,8 +237,6 @@ joint posterior distribution.
       integration by sampling, which is useful when direct computation
       is infeasible or impractical.
 
-### Visual breakdown
-
 To visualise how these components come together, you can think of it as
 layers:
 
@@ -249,6 +247,60 @@ layers:
 - **Top layer (Normalisation)**: Scale the result so that the total
   probability across all parameter values equals 1.
 
+### Step-by-step visualization
+
+The goal of these visualizations is to explore the effects of the
+nuisance parameter $$\theta_2$$ on the distribution of $$\theta_1$$. We
+first observe the overall distribution of $$\theta_2$$ and then focus on
+how specific values influence $$\theta_1$$.
+
+#### Step 1: Visualizing the distribution of $$\theta_2$$
+
+We start by drawing a histogram to understand the typical range and
+distribution of $$\theta_2$$. This visualization helps identify the
+common values and the spread of $$\theta_2$$. For detailed analysis, we
+specifically highlight the bar at $$x = 1$$ to observe its frequency and
+to mark it for further scrutiny.
+
+``` r
+# Simulate some data
+set.seed(123)
+data <- data.frame(
+  theta1 = rnorm(10000),
+  theta2 = rnorm(10000)
+)
+```
+
+![](../assets/images/unnamed-chunk-2-1.png)<!-- -->
+
+![](../assets/images/unnamed-chunk-3-1.png)<!-- -->
+
+#### Step 2: Examining the effect of a highlighted $$\theta_2$$ on $$\theta_1$$
+
+Next, we demonstrate how varying $$\theta_2$$ affects $$\theta_1$$ by
+creating conditional histograms. We highlight the range around $$x = 1$$
+to see how $$\theta_1$$ behaves when $$\theta_2$$ is near this specific
+value. This step visualizes the conditional effects of $$\theta_2$$ on
+$$\theta_1$$ across different slices, with a particular focus on the
+highlighted region.
+
+![](../assets/images/unnamed-chunk-4-1.png)<!-- -->
+
+Integrating out $$\theta_2$$ in Bayesian analysis is about marginalizing
+over this parameter to refine our estimates for $$\theta_1$$. This
+involves averaging over all possible values of $$\theta_2$$, where each
+value is weighted by its likelihood:
+
+- **Highlighting an example value**: By highlighting $$x = 1$$ in the
+  visualizations, we’re not limiting our analysis to this point but
+  rather using it to exemplify how specific values within the range of
+  $$\theta_2$$ can influence the outcome for $$\theta_1$$. It serves as
+  a focal point for comparison.
+- **Complete integration**: The full integration over $$\theta_2$$
+  considers every part of its distribution. Each histogram slice
+  contributes to a comprehensive understanding of how $$\theta_1$$ is
+  influenced by the entire spectrum of $$\theta_2$$.
+
 ## Normal model with unknown mean and variance (BDA3 section 3.2 on p. 64).
 
 Multivariate joint distribution, conditional distribution, marginal
@@ -256,14 +308,6 @@ distribution, marginalization and posterior predictive distribution
 
 ggplot2, grid, and gridExtra are used for plotting, tidyr for
 manipulating data frames
-
-``` r
-library(ggplot2)
-theme_set(theme_minimal())
-library(grid)
-library(gridExtra)
-library(tidyr)
-```
 
 #### Generic part common for Demos 3.1-3.4
 
