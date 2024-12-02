@@ -4,6 +4,7 @@ abstract: "This work deomostrates how to implement the Phoenix Sepsis Score crit
 Pediatric sepsis in children (<18 years) with suspected infection can be identified by at least 2 points in the novel Phoenix Sepsis Score, including dysfunction of the respiratory, cardiovascular, coagulation, and/or neurological systems; and septic shock as sepsis with at least 1 cardiovascular point in the Phoenix Sepsis Score.
 These criteria for pediatric sepsis and septic shock are globally applicable.
 The original investigation can be read at: International consensus criteria for pediatric sepsis and septic shock [@schlapbach2024international]. The phoenix R package and Python model are available from [@DeWitt2024phoenix].
+An implementation of the sofa score is shown in [@ricu2023] - Intensive Care Unit Data with R.
 "
 author:
   - Dylan Lawless^[Dylan Lawless, PhD. Department of Intensive Care and Neonatology, University Children's Hospital Zürich, University of Zürich. dylan.lawless@kispi.uzh.ch]

@@ -54,6 +54,12 @@ read at: International consensus criteria for pediatric sepsis and
 septic shock (Schlapbach et al. 2024). The phoenix R package and Python
 model are available from (DeWitt et al. 2024).
 
+
+The sofa score is implemented in <https://github.com/eth-mds/ricu>.
+
+
+
+
 ![](../assets/images/Phoenix_decision_tree.png)
 
 Decision tree from (Schlapbach et al. 2024).
