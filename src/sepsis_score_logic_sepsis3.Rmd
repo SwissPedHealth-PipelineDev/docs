@@ -1,0 +1,373 @@
+---
+title: "Sepsis score: Sepsis-3" 
+abstract: "This work deomostrates how to implement the Sepsis-3 score criteria for sepsis and septic shock in adults
+
+"
+author:
+  - Dylan Lawless^[Dylan Lawless, PhD. Department of Intensive Care and Neonatology, University Children's Hospital Zürich, University of Zürich. dylan.lawless@kispi.uzh.ch]
+# date: "`r Sys.Date()`"
+output:
+  md_document:
+    variant: gfm
+    preserve_yaml: true
+# output:
+#   bookdown::pdf_document2: 
+    # latex_engine: xelatex
+    # keep_tex: false
+    # citation_package: natbib
+  # md_document:
+  #   variant: gfm
+  #   preserve_yaml: true
+biblio-style: apsr
+urlcolor: blue
+layout: default
+header-includes:
+  - \usepackage{listings}
+  - \usepackage[T1]{fontenc}
+  - \usepackage{fontspec}
+  - \setmainfont{IBM Plex Sans Light}
+  # - \setmainfont{Arial}
+  # - \usepackage{xparse}
+bibliography: Phoenix_Sepsis_Score_logic.bib
+nav_order: 5
+math: mathjax
+---
+
+This doc was built with: `rmarkdown::render("sepsis_score_logic.Rmd", output_file = "../pages/sepsis_score_logic.md")`
+
+# Implementing the Phoenix sepsis score
+
+
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE, results='asis'}
+set.seed(123)  # Set seed for reproducibility
+knitr::opts_chunk$set(echo = TRUE, fig.path='../assets/images/')
+library(ggplot2); theme_set(theme_bw())
+library(dplyr)
+library(stringr)
+library(patchwork)
+library(tidyr)
+```
+
+
+
+```{r}
+
+
+# install.packages("phoenix", repos = "https://cran.rstudio.com")
+library(phoenix)
+
+data  <- sepsis
+```
+
+
+```{r data, echo = TRUE, message=FALSE, warning=FALSE}
+# Subject cohort ----
+# sample_count <- x
+# 
+# # Define min-max ranges for each variable
+# PaO2_FiO2_range <- c(x, x)
+# 
+# # Generate random data for a given number of subjects
+# data <- data.frame(
+#   subject_id = 1:sample_count,
+#   PaO2_FiO2 = round(runif(sample_count, PaO2_FiO2_range[1], PaO2_FiO2_range[2]), 2),
+# )
+
+```
+
+```{r data-head, echo = TRUE, message=FALSE, warning=FALSE}
+print(head(data))
+```
+
+```{r classes, echo = FALSE, message=FALSE, warning=FALSE}
+# Function to get column classes for each dataset
+get_column_classes <- function(df) {
+  sapply(df, class)  # Returns the class of each column in the dataframe
+}
+
+# Apply this function to each dataframe and store the results
+column_classes <- lapply(data, get_column_classes)
+
+# Combine the results into a single data frame for easier analysis
+column_classes_df <- bind_rows(column_classes, .id = "DataFrame")
+head(column_classes_df)
+```
+
+
+
+## Data distribution plots
+
+Visual representations of the dataset are generated to illustrate the distribution of each clinical measurement. These plots are instrumental in identifying trends, outliers, and the overall distribution of data points within the synthetic cohort:
+- Histograms and bar plots provide insights into the frequency and categorisation of data points, facilitating preliminary assessments of data quality and distribution integrity.
+
+
+```{r plot, echo = FALSE, message=FALSE, warning=FALSE}
+# # Plot ----
+# # Function to create a histogram or bar plot depending on the data type
+# create_histogram <- function(data, column_name) {
+#   # Skip if not numeric or logical
+#   if (!is.numeric(data[[column_name]]) && !is.logical(data[[column_name]])) {
+#     return(NULL)
+#   }
+#   
+#   # Decide the plot type based on column data type
+#   if (is.logical(data[[column_name]])) {
+#     # Use geom_bar for logical data to represent TRUE and FALSE separately
+#     p <- ggplot(data, aes_string(x = column_name, fill = column_name)) +
+#       geom_bar() +
+#       scale_fill_manual(values = c("TRUE" = "#0e3b5c", "FALSE" = "#b3cde3")) +
+#       labs(x = column_name, y = "Count") +
+#       guides(fill = FALSE)
+#       # ggtitle(paste("Bar Plot of", column_name))
+#   } else {
+#     # Use geom_histogram for numeric data
+#     p <- ggplot(data, aes_string(x = column_name)) +
+#       geom_histogram(bins = 10, fill = "#0e3b5c", color = "black") +
+#       labs(x = column_name, y = "Frequency")
+#       # ggtitle(paste("Histogram of", column_name))
+#   }
+#   
+#   return(p)
+# }
+# 
+# # Generate and print histograms for each column except 'subject_id'
+# column_names <- setdiff(names(data), "subject_id")
+# 
+# # Split column names into batches
+# column_chunks <- split(column_names, ceiling(seq_along(column_names) / 6))  # Number of plots per chunk
+# 
+# # Generate and combine plots by batches
+# plot_batches <- lapply(column_chunks, function(chunk) {
+#   plots <- lapply(chunk, create_histogram, data = data)
+#   combined_plot <- patchwork::wrap_plots(plots, ncol = 3)  # Number of columns per row
+#   return(combined_plot)
+# })
+# 
+# # Print each batch of plots
+# for (plot in plot_batches) {
+#   print(plot)
+# }
+
+library(ggplot2)
+library(patchwork)
+
+# Function to create a histogram or bar plot depending on the data type
+create_histogram <- function(data, column_name) {
+  # Skip if not numeric or logical
+  if (!is.numeric(data[[column_name]]) && !is.logical(data[[column_name]])) {
+    return(NULL)
+  }
+  
+  # Decide the plot type based on column data type
+  if (is.logical(data[[column_name]])) {
+    # Use geom_bar for logical data to represent TRUE and FALSE separately
+    p <- ggplot(data, aes_string(x = column_name, fill = column_name)) +
+      geom_bar() +
+      scale_fill_manual(values = c("TRUE" = "#0e3b5c", "FALSE" = "#b3cde3")) +
+      labs(x = column_name, y = "Count") +
+      guides(fill = FALSE)
+  } else {
+    # Use geom_histogram for numeric data
+    p <- ggplot(data, aes_string(x = column_name)) +
+      geom_histogram(bins = 10, fill = "#0e3b5c", color = "black") +
+      labs(x = column_name, y = "Frequency")
+  }
+  
+  return(p)
+}
+
+# Generate and print histograms for each column except 'subject_id'
+column_names <- setdiff(names(data), "subject_id")
+
+# Split column names into batches
+column_chunks <- split(column_names, ceiling(seq_along(column_names) / 6))  # Number of plots per chunk
+
+# Generate and combine plots by batches
+plot_batches <- lapply(column_chunks, function(chunk) {
+  plots <- lapply(chunk, create_histogram, data = data)
+  # Remove NULL entries before attempting to combine plots
+  valid_plots <- Filter(function(x) !is.null(x), plots)
+  if (length(valid_plots) > 0) {
+    combined_plot <- patchwork::wrap_plots(valid_plots, ncol = 3)  # Number of columns per row
+    return(combined_plot)
+  }
+  return(NULL)
+})
+
+# Print each batch of plots
+for (plot in plot_batches) {
+  if (!is.null(plot)) {
+    print(plot)
+  }
+}
+
+```
+
+## Logic functions for scoring
+
+Defines the functional logic for calculating scores based on the clinical criteria outlined. Each function is tailored to process specific aspects of patient data, converting raw measurements into actionable clinical scores:
+- These functions are the computational backbone of the scoring system, translating clinical data into standardized scores that reflect patient health status.
+
+**Respiratory score calculation:**
+```{r logic1, echo = TRUE, message=FALSE, warning=FALSE}
+
+# Respiratory score calculation
+respiratory_score <- function(PaO2_FiO2, SpO2_FiO2, is_on_IMV) {
+  if (PaO2_FiO2 >= 400 || SpO2_FiO2 >= 292) {
+    return(0)
+  } else if ((PaO2_FiO2 < 400 && SpO2_FiO2 < 292) || !is_on_IMV) {
+    return(1)
+  } else if ((PaO2_FiO2 >= 100 && PaO2_FiO2 < 200 && is_on_IMV) || 
+             (SpO2_FiO2 >= 148 && SpO2_FiO2 < 220 && is_on_IMV)) {
+    return(2)
+  } else {
+    return(3)
+  }
+}
+```
+
+**Cardiovascular score calculation:**
+```{r logic2, echo = TRUE, message=FALSE, warning=FALSE}
+# Cardiovascular score calculation
+cardiovascular_score <- function(lactate, vasoactive_medications) {
+  score <- 0
+
+  # Check for 0 points condition explicitly
+  if (vasoactive_medications == 0 && lactate <= 5) {
+    return(score)  # Return 0 if no medications and low lactate
+  }
+
+  # Points for vasoactive medications
+  if (vasoactive_medications >= 2) {
+    score <- score + 6  # Max 6 points for 2 or more medications
+  } else if (vasoactive_medications == 1) {
+    score <- score + 2  # 2 points for 1 medication
+  }
+
+  # Points for lactate levels
+  if (lactate > 11) {
+    score <- score + 2
+  } else if (lactate >= 5.1 && lactate <= 10.9) {
+    score <- score + 1
+  }
+
+  return(score)
+}
+```
+
+**Coagulation score calculation:**
+```{r logic3, echo = TRUE, message=FALSE, warning=FALSE}
+# Coagulation score calculation
+coagulation_score <- function(platelets, INR, d_dimer, fibrinogen) {
+  score <- 0
+  if (platelets < 100 || INR > 1.3 || d_dimer > 2 || fibrinogen < 100) {
+    score <- score + 1
+  }
+  return(min(score, 2))  # Max of 2 points
+}
+```
+
+**Neurological score calculation:**
+```{r logic4, echo = TRUE, message=FALSE, warning=FALSE}
+# Neurological score calculation
+neurological_score <- function(GCS, pupils_reactive) {
+  if (!pupils_reactive) {
+    return(2)
+  } else if (GCS <= 10) {
+    return(1)
+  } else {
+    return(0)
+  }
+}
+```
+
+## Decision algorithm for scoring 
+
+Integrates individual scores to derive a comprehensive sepsis risk assessment. The algorithm considers the cumulative impact of respiratory, cardiovascular, coagulation, and neurological scores to determine the overall risk of sepsis and septic shock:
+- This decision-making algorithm is pivotal for applying the scoring system in a clinical context, providing a final determination that supports clinical decision-making.
+
+
+```{r Decision, echo = TRUE, message=FALSE, warning=FALSE}
+
+# Modified evaluate_sepsis to handle a vector from apply
+evaluate_sepsis <- function(subject) {
+  # Calculate scores
+  res_score <- respiratory_score(subject["PaO2_FiO2"], subject["SpO2_FiO2"], subject["is_on_IMV"])
+  cardio_score <- cardiovascular_score(subject["lactate"], subject["vasoactive_medications"])
+  coag_score <- coagulation_score(subject["platelets"], subject["INR"], subject["d_dimer"], subject["fibrinogen"])
+  neuro_score <- neurological_score(subject["GCS"], subject["pupils_reactive"])
+  
+  # Total Phoenix Sepsis Score
+  total_score <- res_score + cardio_score + coag_score + neuro_score
+  
+  # Assess criteria
+  result <- if (total_score >= 2) {
+    if (cardio_score >= 1) {
+      "Septic shock"
+    } else {
+      "Sepsis"
+    }
+  } else {
+    "Monitor and reassess"
+  }
+
+   # Ensure output is always a data frame
+    return(data.frame(result = result, total_score = total_score))
+}
+
+```
+
+## Run evaluation and return result
+
+Applies the decision algorithm across the patient dataset, appending the results to the original data frame. This process culminates in the generation of a final dataset that includes both the raw clinical measurements and the derived sepsis scores, ready for further analysis or review:
+- The output enriches the dataset with valuable insights into patient health, enabling clinicians and researchers to conduct detailed analyses or refine the scoring criteria based on empirical evidence.
+
+```{r eval}
+# Running the assessment for each subject
+
+# Check if the 'data' DataFrame exists and is correct
+if ("data" %in% ls() && is.data.frame(data)) {
+  
+  # Running the assessment for each subject and storing results
+  evaluation_results <- do.call(rbind, apply(data, 1, evaluate_sepsis))  # Apply function row-wise
+ 
+  # Append results to the original data frame
+  data$result <- evaluation_results$result
+  data$total_score <- evaluation_results$total_score
+  data <- data %>% dplyr::select(subject_id, result, total_score, everything())
+} else {
+  print("Data object not found or is not a data frame.")
+}  
+
+```
+
+```{r data-head2, echo = TRUE, message=FALSE, warning=FALSE}
+print(head(data))
+```
+
+## Conclustion 
+
+For every patient (subject) the newly calculatied result columns provide the Phoenix score conclusions:
+`result` of **sepsis**, **septic shock**, or **monitor and reassess**
+and `total_score` of the value **0..n**.
+Audomated classificaion algorithms may be used to provide a precision medicine approach to monitoring and treatment, either locally or as part of national registries. 
+
+## Abbreviations and definitions
+
+- **FEU**: Fibrinogen Equivalent Units  
+- **GCS**: Glasgow Coma Scale
+- **IMV**: Invasive Mechanical Ventilation  
+- **INR**: International Normalized Ratio of Prothrombin Time  
+- **MAP**: Mean Arterial Pressure  
+- **PaO2:FIO2**: Arterial Partial Pressure of Oxygen to Fraction of Inspired Oxygen Ratio  - used to determine the degree of hypoxemia and acute respiratory distress syndrome (ARDS).
+- **Phoenix Sepsis Criteria**: A modern set of guidelines designed to assess sepsis with a focus on paediatric patients, emphasizing organ dysfunction.
+- **Sepsis-1, Sepsis-2, Sepsis-3**: These refer to the evolving definitions of sepsis over time, each marking a significant update in how sepsis is clinically identified and diagnosed based on symptoms and physiological responses.
+- **SIRS**: Systemic inflammatory response syndrome
+- **SOFA**: Sequential Organ Failure Assessment
+- **SpO2**: Oxygen Saturation Measured by Pulse Oximetry (only SpO2 of ≤97%)
+
+![](../assets/images/Phoenix_criteria.png)
+
+Criteria table from [@schlapbach2024international].
+
+## References
