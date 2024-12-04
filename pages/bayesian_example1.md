@@ -1,5 +1,5 @@
 ---
-title: "Bayesian 1 probability in placenta previa"
+title: "Bayes 1 probability in placenta previa"
 output:
   md_document:
     variant: gfm
@@ -13,7 +13,7 @@ math: mathjax
 
 Last update:
 
-    ## [1] "2024-11-17"
+    ## [1] "2024-12-04"
 
 This doc was built with:
 `rmarkdown::render("Bayesian_example1.Rmd", output_file = "../pages/bayesian_example1.md")`

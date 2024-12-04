@@ -10,12 +10,14 @@ nav_order: 5
 math: mathjax
 ---
 
-# Bayes multiparameter models
+# Bayesian: Multiparameter models
 
 Last update:
 ```{r, date, echo = FALSE}
 print(Sys.Date())
 ```
+
+This doc was built with: `rmarkdown::render("Bayesian_example1.Rmd", output_file = "../pages/bayesian_example1.md")`
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.path='../assets/images/')
@@ -136,8 +138,6 @@ $$
 
 Multivariate joint distribution, conditional distribution, marginal
 distribution, marginalization and posterior predictive distribution
-
-ggplot2, grid, and gridExtra are used for plotting, tidyr for manipulating data frames
 
 ```{r load, message=FALSE, error=FALSE, warning=FALSE}
 library(ggplot2)

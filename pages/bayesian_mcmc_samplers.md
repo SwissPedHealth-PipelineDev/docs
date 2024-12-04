@@ -13,6 +13,7 @@ Last update: 20241204
 This page is cloned from Chi Feng at <https://github.com/chi-feng/mcmc-demo> to have an important references for MCMC samplers. 
 
 
+The following demo shows a multimodal dataset with Gibbs sampling. 
 
 <iframe src="https://chi-feng.github.io/mcmc-demo/app.html?algorithm=GibbsSampling&target=multimodal" style="width:100%; height:600px;" frameborder="0">
     Your browser does not support iframes.
