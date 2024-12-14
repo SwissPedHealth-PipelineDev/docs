@@ -14,6 +14,9 @@ The Genomics Database Import step is crucial for compiling variant data from mul
 ### Implementation
 The script `08_genomics_db_import.sh` is designed to handle the consolidation of genomic variant call files (gVCFs) into a GenomicsDB workspace using GATK's `GenomicsDBImport` tool. This script is configured to process the data using SLURM job arrays, enabling parallel processing of genomic data.
 
+- **Number of jobs**: This array is chromosome based and merges all samples into a joint cohort. This array should not be more than 25 (chromosome, not subjects)
+- **Time**: For 180 WGS this is taking ~12 hours for all chromosomes in parallel.
+
 #### Script Description
 The script is optimized for high-throughput computational requirements:
 
@@ -25,6 +28,15 @@ The script is optimized for high-throughput computational requirements:
 - **Job Array**: Supports handling 25 chromosome sets in a batch processing manner.
 
 The script begins by establishing the environment, sourcing necessary variables, and setting up directories for input and output data.
+
+
+### Caveats
+
+* IMPORTANT: The -Xmx value the tool is run with should be less than the total amount of physical memory available by at least a few GB, as the native TileDB library requires additional memory on top of the Java memory. Failure to leave enough memory for the native code can result in confusing error messages!
+* At least one interval must be provided
+* Input GVCFs cannot contain multiple entries for a single genomic position
+* The --genomicsdb-workspace-path must point to a non-existent or empty directory.
+* GenomicsDBImport uses temporary disk storage during import. The amount of temporary disk storage required can exceed the space available, especially when specifying a large number of intervals. The command line argument `--tmp-dir` can be used to specify an alternate temporary storage location with sufficient space..
 
 #### Tools Used
 - **GATK (v4.4.0.0)**: Used for its `GenomicsDBImport` tool, which allows for the efficient aggregation of gVCF files into a single database that can be queried and analyzed more efficiently.
