@@ -11,6 +11,12 @@ nav_order: 6
 ### Overview
 Variant Quality Score Recalibration (VQSR) is an advanced technique used in our pipeline to assess and recalibrate the confidence scores of identified variants. By using known, reliable sources as benchmarks, VQSR improves the accuracy of variant calls, distinguishing true biological variants from technical artifacts.
 
+VQSR in GATK is a sophisticated approach used to assess variant quality and filter out sequencing and data processing artifacts. This two-step procedure begins with building a recalibration model that evaluates the relationship between variant annotations, such as Quality by Depth (QD), Mapping Quality (MQ), and Read Position Rank Sum Test (ReadPosRankSum), against the likelihood that a variant is genuine.
+
+Key resources like HapMap and Omni 2.5M SNP chip array data are leveraged to train this model adaptively. By employing an adaptive error model and a Gaussian mixture model, VQSR provides a score known as VQSLOD (Variant Quality Score Log Odds), which indicates the likelihood of each variant being true. The VQSLOD scores are incorporated into the variant call file (VCF), allowing for highly precise and flexible filtering.
+
+The overall aim of VQSR is to allocate a calibrated probability to each variant, surpassing traditional methods that rely strictly on fixed annotation value thresholds. This technique is especially crucial in contexts where accuracy in variant filtering significantly impacts subsequent analyses and conclusions, particularly in medical genomics research.
+
 ### Implementation
 The `10_vqsr.sh` script executes the VQSR process using GATK's VariantRecalibrator and ApplyVQSR tools. This script is configured for high-demand computational tasks to handle variant data across all chromosome segments.
 

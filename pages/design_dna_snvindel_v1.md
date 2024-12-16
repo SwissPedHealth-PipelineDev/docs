@@ -9,14 +9,6 @@ has_children: true
 Design DNA SNV INDEL v1 - Germline short variant discovery (SNVs + Indels) and interpretation</h1>
 <h2>Design document</h2>
 
-<!-- {: .no_toc } -->
-<!-- <details open markdown="block"> -->
-<!-- <summary>Table of contents</summary> -->
-<!-- {: .text-delta } -->
-<!-- - TOC -->
-<!-- {:toc} -->
-<!-- </details> -->
-
 ---
 
 <img 
@@ -59,7 +51,7 @@ Our main uses from the prepared QV set are:
 * [GATK VQSR](gatk_vqsr.html)
 * [GATK Genotype refine](gatk_genotyperefine.html)
 * VCF QC - [see DNA QC](dna_qc.html)
-* Qualifying variants (variables and thresholds) SNV INDEL v1 - [qv_snvindel_v1](qv_snvindel_v1.html)
+* [QV SNV INDEL V1](qv_snvindel_v1.html) Qualifying variants (variables and thresholds) SNV INDEL v1
 * [Pre-annotation processing](pre_annoprocess.html): data conversion for simpler handling
 * [Pre-annotation MAF](pre_anno_maf.html): filtering to remove noise
 * [DNA annotation](dna_annotation.html): annotate known effects, biological function, associations
