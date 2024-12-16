@@ -11,6 +11,8 @@ Last update: 20230425
 * TOC
 {:toc}
 
+---
+
 ## Abbreviations
 
 * ACAT: Aggregated Cauchy Association Test

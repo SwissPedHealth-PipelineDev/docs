@@ -41,7 +41,7 @@ You can visit the project home page at
 ## Quick start
 
 Most likely, you are looking for one of our design documents. 
-Check the **side bar** or go here: [Index page for design documents](pages/design_doc/design_doc.html).
+Check the **side bar** or go here: [Index page for design documents](pages/design_doc.html).
 These pages describe the processes for our pipelines, start to finish, with links to supporting information.
 
 ## Full site navigation

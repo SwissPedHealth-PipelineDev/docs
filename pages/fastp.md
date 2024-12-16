@@ -18,6 +18,7 @@ Last update: 20230727
 
 # FASTP
 A tool designed to provide fast all-in-one preprocessing for FastQ files. 
+It performs QC, checks adapters, trimming, filtering, splitting/merging, etc.
 This tool is developed in C++ with multithreading supported to afford high performance.
 
 * `fastp.sh` runs on every file in the raw data directory.
