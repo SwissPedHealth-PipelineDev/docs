@@ -47,7 +47,11 @@ The VCF specifications can be read directly from the original documentation. How
 
 <h3>The two types of GVCFs</h3>
 
-<p>As you can see in the figure above, there are two options you can use with <code>-ERC</code>: <code>GVCF</code> and <code>BP_RESOLUTION</code>. With <code>BP_RESOLUTION</code>, you get a GVCF with an individual record at every site: either a variant record, or a non-variant record. With <code>GVCF</code>, you get a GVCF with individual variant records for variant sites, but the non-variant sites are grouped together into non-variant block records that represent intervals of sites for which the genotype quality (GQ) is within a certain range or band. The GQ ranges are defined in the <code>##GVCFBlock</code> line of the GVCF header. The purpose of the blocks (also called banding) is to keep file size down, so we recommend using the <code>-GVCF</code> option over <code>BP_RESOLUTION</code>.</p>
+<p>As you can see in the figure above, there are two options you can use with emit-ref-confidence (ERC) <code>-ERC</code>: <code>GVCF</code> and <code>BP_RESOLUTION</code>. With <code>BP_RESOLUTION</code>, you get a GVCF with an individual record at every site: either a variant record, or a non-variant record. With <code>GVCF</code>, you get a GVCF with individual variant records for variant sites, but the non-variant sites are grouped together into non-variant block records that represent intervals of sites for which the genotype quality (GQ) is within a certain range or band. The GQ ranges are defined in the <code>##GVCFBlock</code> line of the GVCF header. The purpose of the blocks (also called banding) is to keep file size down, so we recommend using the <code>-GVCF</code> option over <code>BP_RESOLUTION</code>.</p>
+
+
+  
+Mode for emitting reference confidence (ERC) scores mode makes it possible to emit a per-bp or summarized confidence estimate for a site being strictly homozygous-reference. See <https://software.broadinstitute.org/gatk/documentation/article.php?id=4017> for information about GVCFs. GVCF  - Reference model emitted with condensed non-variant blocks, i.e. the GVCF format.
 
 <hr>
 

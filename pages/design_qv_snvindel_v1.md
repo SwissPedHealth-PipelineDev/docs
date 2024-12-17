@@ -1,23 +1,26 @@
 ---
 layout: default
-math: mathjax
-title: QV SNV INDEL v1
+title: Design QV SNV INDEL v1
+parent: Design documents
+has_children: false
 nav_order: 5
 ---
 
-Last update: 20241214
+Last update: 20241217
 
-# Qualifying variant protocol: SNV INDEL v1
+# Design QV SNV INDEL v1
+## Qualifying variant protocol for SNV INDEL v1
 
+---
 * TOC
 {:toc}
+---
 
-
-
+**Protocol name**: `design_qv_snvindel_v1`
 
 ## Introduction
 
-This pages summarises the qualifying variant (QV) settings used for `SNV INDEL v1`.
+This pages summarises the qualifying variant (QV) settings used for `QV SNV INDEL v1`.
 QV defines those variants which remain after filtering for use in downstream analysis.
 In general, most choices are based on well established best practices. 
 For any subjective choices of thesholds, we will rely on evidence-based reasoning.
