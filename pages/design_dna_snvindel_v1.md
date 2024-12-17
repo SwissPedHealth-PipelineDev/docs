@@ -63,4 +63,11 @@ src="{{ "pages/design_doc/images/variant_annotation_graph.png" | relative_url }}
 width="100%">
 Figure 2: Extended methods of figure 1 DNA germline short variant discovery pipeline plan.
 
+## Metrics
+
+Study book data:
+
+1. `CollectWgsMetrics`: `03b_collectwgsmetrics.sh` ->  `study_book/qc_summary_stats` mapping, depth, and more.  See [metrics_collectwgsmetrics](metrics_collectwgsmetrics.html).
+1. `bcftools stats` and `plot-vcfstats`: `07c_qc_summary_stats.sh` -> `study_book/qc_summary_stats` gVCF summary after HC. See [metrics_bcftoolsstats](metrics_bcftoolsstats.html).
+
 
