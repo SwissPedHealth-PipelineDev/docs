@@ -78,6 +78,10 @@ all-nodes-cpu                          up   infinite      4  alloc tenant-name-s
 
 By regularly using `squeue` and `sinfo`, users can manage their jobs more effectively and plan their resource usage according to the availability and current load of the compute cluster.
 
+{: .note }
+
+Some nodes show 32G memory on their partition but will not run jobs that have more than #SBATCH --mem 28G. Keep this in mind for other types of overheadthat might prevent a job from launching.
+
 
 ## Note on resource requests in slurm
 

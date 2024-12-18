@@ -4,10 +4,14 @@ title: SLURM sbatch headers
 nav_order: 5
 ---
 
-# SLURM sbatch headers 
+# SLURM sbatch headers
 Last update: 20240820
 
 Here we outline the usage of SLURM sbatch headers to efficiently manage jobs that process genomic data across multiple samples, chromosomes, or genomic regions.
+
+{: .note }
+
+Some nodes show 32G memory on their partition but will not run jobs that have more than #SBATCH --mem 28G. Keep this in mind for other types of overheadthat might prevent a job from launching.
 
 ## Key SLURM sbatch directives
 
