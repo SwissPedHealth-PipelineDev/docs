@@ -1,15 +1,17 @@
 ---
-nav_order: 5
-math: mathjax
 layout: default
+math: mathjax
 title: Stats Odds ratios, SE & CI
-created: 4 July 2021
+nav_order: 5
 ---
-{{ page.title }}
-================
+
+created: 4 July 2021
+# Stats Odds ratios, SE & CI
 
 * TOC
 {:toc}
+
+---
 
 ## Introduction
 

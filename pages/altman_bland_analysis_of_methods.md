@@ -1,15 +1,18 @@
 ---
-nav_order: 5
-math: mathjax
 layout: default
+math: mathjax
 title: Stats Analysis of methods
-created: 16 Sept 2023
+nav_order: 5
 ---
-{{ page.title }}
-================
+
+# Stats Analysis of methods
+
+created: 16 Sept 2023
 
 * TOC
 {:toc}
+
+---
 
 Altman, D. G., and J. M. Bland. "Measurement in Medicine: The Analysis of Method Comparison Studies." Journal of the Royal Statistical Society. Series D (The Statistician), vol. 32, no. 3, 1983, pp. 307–17. JSTOR, <https://doi.org/10.2307/2987937>.
 

@@ -1,15 +1,17 @@
 ---
-nav_order: 5
-math: mathjax
 layout: default
+math: mathjax
 title: Stats Receiver operating characteristic plots
-created: 2021-07-16
+nav_order: 5
 ---
-{{ page.title }}
-================
+
+created: 2021-07-16
+# Stats Receiver operating characteristic plots
 
 * TOC
 {:toc}
+
+---
 
 ## Receiver operating characteristic plots
 This article covers the fifth paper in the series of statistics notes altman1994diagnostic

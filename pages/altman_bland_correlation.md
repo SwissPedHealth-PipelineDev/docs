@@ -1,15 +1,18 @@
 ---
+title: Stats Correlation, regression and repeated data
 nav_order: 5
 math: mathjax
 layout: default
-title: Stats Correlation, regression and repeated data
-created: 29 June 2021
 ---
-{{ page.title }}
-================
+
+# Stats Correlation, regression and repeated data
+
+created: 29 June 2021
 
 * TOC
 {:toc}
+
+---
 
 ## Introduction
 

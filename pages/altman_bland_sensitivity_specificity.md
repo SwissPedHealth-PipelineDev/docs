@@ -1,12 +1,13 @@
 ---
+title: Stats Sensitivity and specificity
 nav_order: 5
 math: mathjax
 layout: default
-title: Stats Sensitivity and specificity
-created: 19 July 2021
 ---
 {{ page.title }}
 ================
+
+created: 19 July 2021
 
 * TOC
 {:toc}
