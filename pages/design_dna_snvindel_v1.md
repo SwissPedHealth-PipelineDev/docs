@@ -56,6 +56,7 @@ specifically, a set of per-sample BAM files that have been pre-processed as desc
     - QV set 1 for clinical genetics (known disease-causing) report for each individual
     - QV set 2 for statistical genomics (new associations with established methods) for cohort level discovery
     - QV set 1 or 2 for other methods (ML/DL, causal inference) (new methods) for individual and cohort level discovery
+1. Release data.
 
 ## Protocol steps
 
@@ -84,6 +85,8 @@ The major processing steps in sequential order are:
     * Clinical genetics reports - not documented here
     * [Design Statistical genomics v1](design_statistical_genomics_v1.html)
     * ML/DL projects - not documented here
+* **Release**
+    * See [design_dna_snvindel_v1_release](design_dna_snvindel_v1_release.html)
 
 <img src="{{ "pages/design_doc/images/variant_annotation_graph.png" | relative_url }}" width="75%">
 
@@ -96,4 +99,7 @@ Study book data:
 1. `CollectWgsMetrics`: `03b_collectwgsmetrics.sh` ->  `study_book/qc_summary_stats` mapping, depth, and more.  See [metrics_collectwgsmetrics](metrics_collectwgsmetrics.html).
 1. `bcftools stats` and `plot-vcfstats`: `07c_qc_summary_stats.sh` -> `study_book/qc_summary_stats` gVCF summary after HC. See [metrics_bcftoolsstats](metrics_bcftoolsstats.html).
 
+## Data release
+
+The private internal data release: [design_dna_snvindel_v1_release](design_dna_snvindel_v1_release.html)
 
