@@ -132,3 +132,9 @@ For more reading see:
 * Li, J., Liu, Y., Kim, T., Min, R. & Zhang, Z. Gene expression variability within and between human populations and implications toward disease susceptibility. PLoS Comput. Biol. 6, e1000910 (2010).<https://doi.org/10.1371%2Fjournal.pcbi.1000910>
 * Jovov, B. et al. Differential gene expression between African American and European American colorectal cancer patients. PLoS ONE 7, e30168 (2012).<https://doi.org/10.1371%2Fjournal.pone.0030168>
 * Price, A. L. et al. Principal components analysis corrects for stratification in genome-wide association studies. Nat. Genet. 38, 904–909 (2006).<https://doi.org/10.1038%2Fng1847>
+
+Lastly, the abstract from the following says why the the answer is not always commonly reported:
+
+* Shiquan Sun, Michelle Hood, Laura Scott, Qinke Peng, Sayan Mukherjee, Jenny Tung, Xiang Zhou, Differential expression analysis for RNAseq using Poisson mixed models, Nucleic Acids Research, Volume 45, Issue 11, 20 June 2017, Page e106, <https://doi.org/10.1093/nar/gkx204>
+
+> Identifying differentially expressed (DE) genes from RNA sequencing (RNAseq) studies is among the most common analyses in genomics. However, RNAseq DE analysis presents several statistical and computational challenges, including over-dispersed read counts and, in some settings, sample non-independence. Previous count-based methods rely on simple hierarchical Poisson models (e.g. negative binomial) to model independent over-dispersion, but do not account for sample non-independence due to relatedness, population structure and/or hidden confounders. 
