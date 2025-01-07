@@ -117,3 +117,18 @@ Error: Flag indicating differences between the estimated and specified kinship c
 Manichaikul A, Mychaleckyj JC, Rich SS, Daly K, Sale M, Chen WM (2010) Robust relationship inference in genome-wide association studies. Bioinformatics 26(22):2867-2873 [Abstract](http://bioinformatics.oxfordjournals.org/content/26/22/2867.abstract) [PDF](https://www.chen.kingrelatedness.com/publications/pdf/BI26_2867.pdf) [Citations](http://scholar.google.com/scholar?cites=15635507985807147418&as_sdt=5,47&sciodt=0,47&hl=en).
 
 
+## Population structure in other omics
+
+In GWAS, PCA is employed to control for population structure by including the top principal components in the analysis. 
+The applicability of this method extends to other omics analsis, including RNAseq differential expression (DE), which quantitatively test for RNAseq abundance, protein abundance, or multi-omic data (mixed DNA, RNA, and protein), especially when the analysis resembles a simple association test similar to Plink's --assoc. 
+It is both necessary and effective to use PCA in RNAseq DE, for example, to manage population structure. 
+Analogous to its use in GWAS, where PCA corrects for population structure in genetic data, RNAseq-based genetic principal components (RG-PCs) can be computed and employed as covariates in DE analyses. 
+This strategy reduces confounding effects due to population stratification, thereby improving the accuracy and reliability of the results. 
+For more reading see:
+
+* Fachrul et al. (2023). Direct inference and control of genetic population structure from RNA sequencing data. <https://www.nature.com/articles/s42003-023-05171-9>
+* Storey, J. D. et al. Gene-expression variation within and among human populations. Am. J. Hum. Genet. 80, 502–509 (2007). <https://doi.org/10.1086%2F512017>
+* Thami, P. K. & Chimusa, E. R. Population structure and implications on the genetic architecture of HIV-1 phenotypes within Southern Africa. Front. Genet. 10, 905 (2019).<https://doi.org/10.3389%2Ffgene.2019.00905>
+* Li, J., Liu, Y., Kim, T., Min, R. & Zhang, Z. Gene expression variability within and between human populations and implications toward disease susceptibility. PLoS Comput. Biol. 6, e1000910 (2010).<https://doi.org/10.1371%2Fjournal.pcbi.1000910>
+* Jovov, B. et al. Differential gene expression between African American and European American colorectal cancer patients. PLoS ONE 7, e30168 (2012).<https://doi.org/10.1371%2Fjournal.pone.0030168>
+* Price, A. L. et al. Principal components analysis corrects for stratification in genome-wide association studies. Nat. Genet. 38, 904–909 (2006).<https://doi.org/10.1038%2Fng1847>
