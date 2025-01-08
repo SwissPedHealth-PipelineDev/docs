@@ -1,0 +1,93 @@
+Fri Dec 20 16:34:53 2024 +0100 - DylanLawless: pca page
+Fri Dec 20 00:03:46 2024 +0100 - DylanLawless: metrics
+Wed Dec 18 17:07:52 2024 +0100 - DylanLawless: slurm notes
+Tue Dec 17 15:36:35 2024 +0100 - DylanLawless: design docs naviation and content linked
+Tue Dec 17 13:07:00 2024 +0100 - DylanLawless: metrics pages
+Mon Dec 16 15:53:57 2024 +0100 - DylanLawless: qv page
+Mon Dec 16 10:07:32 2024 +0100 - dylan: design docs DNA v1
+Sat Dec 14 11:46:50 2024 +0100 - DylanLawless: vcf gvcf and QV protocol started
+Tue Dec 10 19:02:52 2024 +0100 - DylanLawless: search function
+Tue Dec 10 18:53:01 2024 +0100 - DylanLawless: host error
+Tue Dec 10 18:18:22 2024 +0100 - DylanLawless: ref page update
+Thu Dec 5 15:01:01 2024 +0100 - dylan: annotation table
+Thu Dec 5 14:05:24 2024 +0100 - dylan: acmg criteria scoring
+Wed Dec 4 20:01:58 2024 +0100 - DylanLawless: conflicts
+Wed Dec 4 19:59:11 2024 +0100 - DylanLawless: bayes mutiparam biassay for ld50
+Wed Dec 4 17:51:33 2024 +0100 - DylanLawless: mcmc samplers with demo
+Mon Dec 2 12:33:31 2024 +0100 - DylanLawless: sofa score
+Sat Nov 30 15:22:58 2024 +0100 - dylan: bayes multiparam
+Sat Nov 30 10:37:36 2024 +0100 - dylan: plotted example of bayes multiparam nuicence param
+Fri Nov 29 22:16:17 2024 +0100 - dylan: gemfile fix
+Fri Nov 29 22:07:15 2024 +0100 - dylan: bayes multiparam
+Fri Nov 29 16:57:19 2024 +0100 - DylanLawless: unfinished bayes multiparam
+Fri Nov 29 14:46:41 2024 +0100 - DylanLawless: index page image
+Fri Nov 29 14:42:56 2024 +0100 - DylanLawless: documentation log page
+Fri Nov 29 13:44:41 2024 +0100 - DylanLawless: altman plot path update
+Fri Nov 29 12:46:14 2024 +0100 - DylanLawless: several altman and bland methods as stats pages
+Fri Nov 29 10:22:31 2024 +0100 - dylan: discretete prob bayes example
+Thu Nov 28 14:17:55 2024 +0100 - DylanLawless: remove trash pages
+Wed Nov 27 14:29:27 2024 +0100 - DylanLawless: phoenix values
+Wed Nov 27 14:18:11 2024 +0100 - DylanLawless: phoenix figures
+Wed Nov 27 13:58:17 2024 +0100 - DylanLawless: phoenix score
+Wed Nov 20 12:42:40 2024 +0100 - DylanLawless: slurm manager note
+Wed Nov 20 12:36:14 2024 +0100 - DylanLawless: slurm manage
+Wed Nov 20 12:34:09 2024 +0100 - DylanLawless: slurm manage
+Sun Nov 17 19:33:37 2024 +0100 - dylan: bayesian 2
+Wed Nov 13 16:40:02 2024 +0100 - DylanLawless: Baysian example BDA3
+Wed Nov 13 16:32:35 2024 +0100 - DylanLawless: Baysian example BDA3
+Wed Nov 6 18:40:46 2024 +0100 - DylanLawless: download links
+Wed Nov 6 17:49:20 2024 +0100 - DylanLawless: added downloads
+Wed Nov 6 17:35:34 2024 +0100 - DylanLawless: semantic evidence network plots
+Mon Nov 4 09:40:44 2024 +0100 - DylanLawless: bevimed
+Fri Nov 1 17:49:11 2024 +0100 - DylanLawless: complete sequencing_assay concepts
+Tue Oct 22 11:29:20 2024 +0200 - Dylan: updated variant concepts
+Mon Sep 23 14:34:22 2024 +0200 - dylan: SPHN concept merge updates
+Mon Sep 23 14:13:58 2024 +0200 - dylan: SPHN concept merge updates
+Fri Sep 20 12:25:53 2024 +0200 - DylanLawless: aims to RDF
+Fri Sep 20 11:59:01 2024 +0200 - DylanLawless: download paths
+Fri Sep 20 11:46:43 2024 +0200 - DylanLawless: variant to RDF mapping prep
+Wed Aug 28 12:59:25 2024 +0200 - dylan: docker with singularity
+Wed Aug 28 11:06:12 2024 +0200 - dylan: acat images
+Wed Aug 28 10:50:32 2024 +0200 - dylan: acat pngs
+Wed Aug 28 10:31:48 2024 +0200 - dylan: acat
+Tue Aug 27 13:13:34 2024 +0200 - DylanLawless: guru
+Tue Aug 27 13:00:30 2024 +0200 - DylanLawless: acmg criteria
+Tue Aug 27 11:19:06 2024 +0200 - DylanLawless: mathjax
+Mon Aug 26 17:21:49 2024 +0200 - dylan: vsat skat
+Mon Aug 26 14:59:32 2024 +0200 - dylan: filter vcf with bcftools
+Fri Aug 23 15:36:13 2024 +0200 - Dylan: vsat setid
+Tue Aug 20 17:36:10 2024 +0200 - Dylan: sv docs, sbatch, variables
+Mon Aug 19 15:50:11 2024 +0200 - dylan: typos
+Mon Aug 19 15:47:11 2024 +0200 - dylan: benchmarking
+Mon Aug 19 15:22:31 2024 +0200 - dylan: synth data
+Mon Aug 19 15:18:13 2024 +0200 - dylan: synth data
+Mon Aug 19 14:59:14 2024 +0200 - dylan: synth data
+Mon Aug 19 14:54:23 2024 +0200 - dylan: synthetic data
+Wed Aug 7 15:57:54 2024 +0200 - dylan: 1kg pca
+Mon Jul 29 09:48:51 2024 +0200 - Dylan: Merge branch 'main' of github.com:SwissPedHealth-PipelineDev/docs into main
+Mon Jul 29 09:48:34 2024 +0200 - Dylan: gwas page
+Wed Jul 24 15:08:01 2024 +0200 - DylanLawless: virtual gene panels
+Fri Jul 19 17:03:57 2024 +0200 - DylanLawless: benchmark errors
+Wed Jul 17 14:44:33 2024 +0200 - dylan: benchmark
+Wed Jul 17 14:22:03 2024 +0200 - dylan: benchmark
+Wed Jul 17 10:09:34 2024 +0200 - dylan: whitepaper link
+Wed Jul 17 10:00:47 2024 +0200 - dylan: precision med
+Wed Jul 17 09:46:21 2024 +0200 - dylan: .nojekyll to prevent github from building
+Wed Jul 17 09:43:01 2024 +0200 - dylan: gem
+Wed Jul 17 09:40:37 2024 +0200 - dylan: config
+Wed Jul 17 09:35:21 2024 +0200 - dylan: Merge branch 'main' of github.com:SwissPedHealth-PipelineDev/docs into main
+Wed Jul 17 09:35:08 2024 +0200 - dylan: pmu
+Tue Jul 16 17:26:36 2024 +0200 - dylan: pmu page
+Wed Jul 10 13:39:26 2024 +0200 - DylanLawless: Merge branch 'main' of dylanlawless.github.com:SwissPedHealth-PipelineDev/docs
+Tue Jul 9 14:10:39 2024 +0200 - Dylan: quick start index
+Tue Jul 9 13:46:03 2024 +0200 - Dylan: gem
+Tue Jul 9 13:35:31 2024 +0200 - Dylan: ref path
+Thu Jun 13 12:32:41 2024 +0200 - Dylan: read group with bwa
+Tue Jun 11 14:33:05 2024 +0200 - Dylan: Merge branch 'main' of github.com:SwissPedHealth-PipelineDev/docs into main
+Tue Jun 11 14:18:41 2024 +0200 - Dylan: aggregate multiplex read group
+Fri Jun 7 13:30:52 2024 +0200 - DylanLawless: Merge branch 'main' of dylanlawless.github.com:SwissPedHealth-PipelineDev/docs
+Sun Jun 2 11:14:29 2024 +0200 - dylan: test
+Fri May 31 16:50:17 2024 +0200 - Dylan: gatk pages
+Fri Mar 1 15:28:53 2024 +0100 - DylanLawless: Merge branch 'main' of dylanlawless.github.com:SwissPedHealth-PipelineDev/docs
+
+Git log for 2024 contains       90 entries and is saved to gitlog_2024.txt

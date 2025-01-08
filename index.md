@@ -119,8 +119,13 @@ However, this `docs` repo is a standalone repository within the SwissPedHealth-P
 We can use the special styles for `{: .note }` and `{: .warning }` by adding this code before a paragraph.
 
 
-## Documentation growth
-We intermittently track the [documentation log count](pages/file_count.html).
+## Change log
+The change log and (intermittently) the page count is tracked in the [documentation log page](pages/documentation_log.html).
+
+* Git log for 2024 contains 90 entries and is saved to `gitlog_2024.txt`
+* Git log for 2023 contains 49 entries and is saved to `gitlog_2023.txt`
+
+### Growth
 
 ![img]({{ "assets/images/file_count_plot-1.png" | relative_url }})
 

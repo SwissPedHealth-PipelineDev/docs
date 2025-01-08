@@ -1,5 +1,5 @@
 ---
-title: "Documentation log count"
+title: "Documentation log"
 output:
   md_document:
     variant: gfm
@@ -20,7 +20,7 @@ Last update:
 print(Sys.Date())
 ```
 
-This doc was built with: `rmarkdown::render("file_count.Rmd", output_file = "../pages/file_count.md")`
+This doc was built with: `rmarkdown::render("documentation_log.Rmd", output_file = "../pages/documentation_log.md")`
 
 Below is the latest count of documentation pages. 
 This figure is updated sporadically to track the current page count and estimated growth rate.
@@ -121,4 +121,44 @@ p2 <- ggplot(results, aes(x = WordCount)) +
 
 # Print the plots
 print(p1 + p2)
+```
+
+
+
+## Change log
+
+See `generate_gitlog.sh` for usage.
+
+* [View Git Log 2025](../gitlog_2025.txt)
+* [View Git Log 2024](../gitlog_2024.txt)
+* [View Git Log 2023](../gitlog_2023.txt)
+
+(current year log may not be up-to-date)
+
+```{r echo=FALSE, results='asis'}
+cat("## 2025", sep="\n")
+gitlog_path <- "../gitlog_2025.txt"  # Adjust the path as needed
+
+# Check if the file exists
+if (file.exists(gitlog_path)) {
+  # Read and print the contents of the git log
+  log_contents <- readLines(gitlog_path)
+  cat(log_contents, sep="\n\n")
+} else {
+  cat("The git log file for 2025 is not available.")
+}
+```
+
+```{r echo=FALSE, results='asis'}
+cat("## 2024", sep="\n")
+gitlog_path <- "../gitlog_2024.txt"
+log_contents <- readLines(gitlog_path)
+cat(log_contents, sep="\n\n")
+```
+
+```{r echo=FALSE, results='asis'}
+cat("## 2023", sep="\n")
+gitlog_path <- "../gitlog_2023.txt"
+log_contents <- readLines(gitlog_path)
+cat(log_contents, sep="\n\n")
 ```
