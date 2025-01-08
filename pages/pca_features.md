@@ -9,6 +9,11 @@ Last update: 20250106
 
 ---
 
+## PCA in genomic analysis
+
+For example of PCA correcting for population structure in GWAS see 
+<https://cloufield.github.io/GWASTutorial/05_PCA/>.
+
 ## Haplotype blocks
 
 Consider how DNA is inherited from parents: during recombination, each chromosome in the nucleus - whether autosomal (chr1-22), sex (X, Y), or mitochondrial (Mt) - receives one DNA strand from each parent. 
