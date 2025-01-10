@@ -21,18 +21,17 @@ The affected ACGM criteria are:
 PVS1, PS1, PM1, PP1,
 BVS1, BS1, BM1, BP1.
 A subsequent example is the ACMG classification step, PVS1, which is defined as a "null variant (nonsense, frameshift, canonical +- 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease".
-Thus to define a gene as beloging to a known disease meachnism we must use a stable and reliable soure of disease-genes. Read more here](acmg_criteria_table_main.html).
-
-
+Thus to define a gene as belonging to a known disease mechanism we must use a stable and reliable source of disease-genes. 
+[Read more here](acmg_criteria_table_main.html).
 
 ## Current usage
 
-1. **Human Inborn Errors of Immunity**
+1. **Human inborn errors of immunity**
     * File: `10876_2022_1289_MOESM2_ESM_DLcleaned.tsv`
     * Source: <https://lawlessgenomics.com/topic/iuis-iei-table-page> via International Union of Immunological Societies (IUIS) Inborn Errors of Immunity Committee (IEI) (<https://iuis.org>)
     * Caveat: [Cleaning was implemented here](https://github.com/DylanLawless/genomics_tools/tree/master/iuis_iei_table)
 
-1. **Likely inborn error of metabolis**
+1. **Likely inborn error of metabolism**
     * File: `Likely_inborn_error_of_metabolism_targeted_testing_not_possible.tsv`
     * Source: <https://panelapp.genomicsengland.co.uk/panels/467/>
     * Caveat: None
@@ -40,4 +39,4 @@ Thus to define a gene as beloging to a known disease meachnism we must use a sta
 1. **Pending: All 451 panels of GE panel app**
     * File: `Not shown`
     * Source: [GE panel app](https://panelapp.genomicsengland.co.uk) via the [API](https://panelapp.genomicsengland.co.uk/api/docs/)
-    * Caveat: Login required - this database has been locally downloaded and processed for our pipelines.
+    * Caveat: Login required - this database has been locally downloaded and processed for our pipelines. This notice will be replaced when it is ready for use.
