@@ -1,5 +1,5 @@
-| Evidence_type | label | Evidence | Manual_adjustment | ACGM_label | Caveat_number | Caveat |
-|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| Evidence type | label | Evidence | Manual adjustment | ACGM label | Caveat number | Caveat |
+|:--:|:--:|:--:|:--:|:--:|:--:|:-- |
 | pathogenicity | VS1 | very_strong |  | PVS1 | 1 | LoF not disease causing for gene |
 | pathogenicity | VS1 | very_strong |  | PVS1 | 2 | LoF at 3prime end (loftee) |
 | pathogenicity | VS1 | very_strong |  | PVS1 | 3 | exon skipping splce that leave functional protein |
