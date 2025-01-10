@@ -29,7 +29,7 @@ Last update: 20241217
 | Phase 2 | (4)  | In progress <br> Test complete | Statistical genomics to find new       <br>cohort-level associations with <br>disease (established methods). |
 | Phase 2 | (5)  | In progress         | New methods (ML/DL, causal inference)  <br>for individual and cohort-level<br>discovery.                     |
 
-<img src="{{ "pages/design_doc/images/mcl_skat_4_extended_vcurrent.png" | relative_url }}" width="75%">
+<img src="{{ "pages/design_doc/images/qv_pipeline_vcurrent.png" | relative_url }}" width="75%">
 
 Figure 1: Summary of design DNA SNV INDEL v1 pipeline plan.
 
