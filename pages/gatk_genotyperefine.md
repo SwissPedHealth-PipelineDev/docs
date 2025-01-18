@@ -3,7 +3,7 @@ layout: default
 title: GATK Genotype refine
 parent: DNA germline short variant discovery
 grand_parent: Design documents
-nav_order: 6
+nav_order: 5
 ---
 
 ## Genotype Refinement

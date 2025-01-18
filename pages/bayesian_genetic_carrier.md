@@ -5,7 +5,7 @@ output:
     variant: gfm
     preserve_yaml: true
 layout: default
-nav_order: 6
+nav_order: 5
 math: mathjax
 ---
 

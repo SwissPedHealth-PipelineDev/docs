@@ -7,6 +7,8 @@ nav_order: 5
 
 # Index page for design documents
 
+Last update: 20220701
+
 This pages list the protocols used in our analysis. 
 The protcols are compiled from modular components which may be resused from shared documentation.
 Completed design documents are listed below in the table of contents. 

@@ -5,7 +5,8 @@ title: Stats Odds ratios, SE & CI
 nav_order: 5
 ---
 
-created: 4 July 2021
+Last update: 20210704
+
 # Stats Odds ratios, SE & CI
 
 * TOC

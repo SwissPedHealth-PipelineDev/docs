@@ -3,10 +3,13 @@ layout: default
 title: Pre-annotation MAF
 parent: DNA germline short variant discovery
 grand_parent: Design documents
-nav_order: 8
+nav_order: 5
 ---
 
 ## Pre-Annotation MAF Filtering
+
+Last update: 20241101
+
 
 ### Overview
 The Pre-Annotation MAF Filtering step selectively removes variants from VCF files that exceed a specified minor allele frequency threshold. This step is crucial for focusing analyses on rare variants, which are often of particular interest in studies of rare genetic disorders.

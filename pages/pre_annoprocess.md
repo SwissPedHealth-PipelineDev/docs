@@ -3,10 +3,12 @@ layout: default
 title: Pre-annotation processing
 parent: DNA germline short variant discovery
 grand_parent: Design documents
-nav_order: 7
+nav_order: 5
 ---
 
 ## Pre-Annotation Processing
+
+Last update: 20241101
 
 ### Overview
 The Pre-Annotation Processing step refines VCF files prior to detailed annotation. This involves filtering, normalizing, and decomposing variants to ensure that the data fed into the annotation tools is of high quality and structured correctly.

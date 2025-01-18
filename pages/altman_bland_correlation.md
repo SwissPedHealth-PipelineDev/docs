@@ -7,7 +7,7 @@ layout: default
 
 # Stats Correlation, regression and repeated data
 
-created: 29 June 2021
+Last update: 20210629
 
 * TOC
 {:toc}

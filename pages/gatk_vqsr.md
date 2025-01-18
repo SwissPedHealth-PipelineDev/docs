@@ -3,7 +3,7 @@ layout: default
 title: GATK VQSR
 parent: DNA germline short variant discovery
 grand_parent: Design documents
-nav_order: 6
+nav_order: 5
 ---
 
 ## Variant Quality Score Recalibration (VQSR)

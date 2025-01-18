@@ -7,7 +7,7 @@ nav_order: 5
 
 # Stats Analysis of methods
 
-created: 16 Sept 2023
+Last update: 20230916
 
 * TOC
 {:toc}

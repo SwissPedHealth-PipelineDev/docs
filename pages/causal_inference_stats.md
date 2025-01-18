@@ -8,7 +8,7 @@ math: mathjax
 
 # Causal inference stats Pearl review
 
-Last update: 2025-01-01
+Last update: 20250101
 
 This document is based on **[1]** "**J. Pearl, "Causal inference in statistics: An overview**,"  _Statistics Surveys_, 2009, [link to pdf](https://ftp.cs.ucla.edu/pub/stat_ser/r350-reprint.pdf). Here is a [link to the author's homepage](https://bayes.cs.ucla.edu/jp_home.html) where you will find the key work highlighted. 
 The complete textbook is **[2]** "**Causality - Models, Reasoning, and Inference**", Second edition, Judea Pearl, [link to author page](https://bayes.cs.ucla.edu/BOOK-09/causality2-excerpts.htm). 
