@@ -17,16 +17,16 @@ PipeDev docs
 
 ---
 
-{: .no_toc }
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-- TOC
-{:toc}
-</details>
----
+<!-- {: .no_toc } -->
+<!-- <details open markdown="block"> -->
+<!--   <summary> -->
+<!--     Table of contents -->
+<!--   </summary> -->
+<!--   {: .text-delta } -->
+<!-- - TOC -->
+<!-- {:toc} -->
+<!-- </details> -->
+<!-- --- -->
 
 <!-- width="100% -->
 
@@ -38,11 +38,18 @@ This is the documentation index for bioinformatic pipeline development.
 You can visit the project home page at
 <https://www.swisspedhealth.ch>.
 
+
+<img src="{{ "assets/images/multiomic_model_vcurrent.png" | relative_url }}" width="100%">
+
 ## Quick start
 
 Most likely, you are looking for one of our design documents. 
 Check the **side bar** or go here: [Index page for design documents](pages/design_doc.html).
 These pages describe the processes for our pipelines, start to finish, with links to supporting information.
+
+## Latest updates
+
+See the [platform release updates]({% link pages/platform_updates.md %}) for the most recent features.
 
 ## Full site navigation
 
