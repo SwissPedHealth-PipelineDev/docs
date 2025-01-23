@@ -6,7 +6,7 @@ nav_order: 5
 
 # Platform updates
 
-Last update: 20250118
+Last update: 20250123
 <!-- [Link to a page]({{ site.baseurl }}{% link pages/ref.md %}) -->
 
 1. ☆   Minor features
@@ -15,6 +15,8 @@ Last update: 20250118
 
 | Type | Version date | Release |
 |---|---|---|
+| ☆☆  | v1.0 20250123 | [Heracles report package live release](https://github.com/DylanLawless/heracles) |
+| ☆☆  | v1.0 20250120 | [PanelAppRex package live release](https://github.com/DylanLawless/PanelAppRex) |
 | ☆☆☆ | v1.0 20250102 | [Main dataset DNA SNV and INDEL V1 (internal) data release]({% link pages/design_dna_snvindel_v1_release.md %}) |
 | ☆☆  | v1.0 20241220 | [PCA SNV and INDEL Design V1 release]({% link pages/design_PCA_SNV_INDEL_V1.md %}) |
 | ☆   | v1.0 20241219 | [Multiple QC metrics for WGS 3]({% link pages/metrics_bcftoolscounts.md %}) |
