@@ -7,6 +7,7 @@
 ```
 ├── annotation
 ├── checksums.md5
+├── current_master_sample_list
 ├── dna_snv_indel_v1_release.out
 ├── dna_snv_indel_v1_release.README.md
 ├── dna_snv_indel_v1_release.sh.log
@@ -41,3 +42,9 @@
 * `${RELEASE_DNA_SNV_INDEL_V1}/PCA/19b_pca_prep_swisspedhealth.sh.log`
 * `${RELEASE_DNA_SNV_INDEL_V1}/PCA/20b_pca_swisspedhealth.sh.log`
 * `${RELEASE_DNA_SNV_INDEL_V1}/PCA/21b_pca_biplot_1kg_part3_ggplot_vcurrent.R.log`
+* `${RELEASE_DNA_SNV_INDEL_V1}/PCA/22_pca_kingsub_project.sh.log`
+* `${RELEASE_DNA_SNV_INDEL_V1}/PCA/22b_pca_kingsub_project_ggplot_vcurrent.R.log`
+
+#### current master sample file list
+
+* `${RELEASE_DNA_SNV_INDEL_V1}/current_master_sample_list`
