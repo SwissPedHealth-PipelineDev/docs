@@ -41,3 +41,11 @@ Last update: 20250123
 | ☆   | v0.1 20220701 | [Design Document]({% link pages/design_doc.md %}) |
 
 
+
+## Internal pre-prints 
+
+* archipelago2025lawless <https://www.overleaf.com/project/6794adeaf67d79f23962b81a>
+* qv2025lawless <https://www.overleaf.com/project/6794ac2a8429fed58bd1cba9>
+* sph2025lawless <https://www.overleaf.com/project/667a7e6cb0ac9a21b9fe9a6b>
+
+
