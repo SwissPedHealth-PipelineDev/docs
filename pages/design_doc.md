@@ -19,4 +19,4 @@ Completed design documents are listed below in the table of contents.
 2. DNA structural variation
 3. RNA quantitative expression
 4. Metabolomics and proteomics
-
+5. Clinical/pheno/covariate features
