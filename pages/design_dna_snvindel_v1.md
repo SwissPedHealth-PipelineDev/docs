@@ -24,10 +24,13 @@ Last update: 20241217
 | Phase   | Aim  | Status              | Task                                                                                                         |
 |:-------:|:----:|---------------------|--------------------------------------------------------------------------------------------------------------|
 | Phase 2 | (1)  | **Complete**        | Process all WGS from the study cohort  <br><https://www.swisspedhealth.ch><br>to a consensus format.         |
-| Phase 2 | (2)  | **1 of 2 complete** | Prepare qualifying variant (QV) sets   <br>for each downstream aim.                                          |
-| Phase 2 | (3)  | In progress <br> Test complete | Clinical genetics report per individual<br>(i.e., baseline benchmark of   <br>known disease-causing).        |
-| Phase 2 | (4)  | In progress <br> Test complete | Statistical genomics to find new       <br>cohort-level associations with <br>disease (established methods). |
-| Phase 2 | (5)  | In progress         | New methods (ML/DL, causal inference)  <br>for individual and cohort-level<br>discovery.                     |
+| Phase 2 | (2)  | **2 of 2 complete** | Prepare qualifying variant (QV) sets   <br>for each downstream aim.                                          |
+| Phase 2 | (3)  | **v1 complete** <br> v2 in progress | Clinical genetics report per individual<br>(i.e., baseline benchmark of   <br>known disease-causing).        |
+| Phase 2 | (4)  | **2 experiment complete** | GWAS: Statistical genomics to find new <br>cohort-level associations with <br>disease. |
+| Phase 2 | (5)  | **2 experiment complete** | Gene-VSAT: Statistical genomics to find new <br>cohort-level associations with <br>disease. |
+| Phase 2 | (6)  | **1 experiment complete** | Proteome-VSAT: Statistical genomics to find new <br>cohort-level associations with <br>disease (Proteom-VSAT). |
+| Phase 2 | (7)  | **1 experiment complete** | ACAT: Statistical multiomics to find new <br>cohort-level associations with <br>disease.. |
+| Phase 2 | (8)  | In progress         | New methods (ML/DL, causal inference)  <br>for individual and cohort-level<br>discovery.                     |
 
 <img src="{{ "pages/design_doc/images/qv_pipeline_vcurrent.png" | relative_url }}" width="75%">
 
@@ -47,6 +50,8 @@ best practices workflow for
 [germline short variant discovery](https://gatk.broadinstitute.org/hc/en-us/articles/360035535932-Germline-short-variant-discovery-SNPs-Indels) (open source licence [here](https://github.com/broadinstitute/gatk/blob/master/LICENSE.TXT)).
 This GATK workflow is designed to operate on a set of samples constituting a study cohort; 
 specifically, a set of per-sample BAM files that have been pre-processed as described in the GATK Best Practices for data pre-processing.
+Single-variant and genomics-only analysis will be followed up to confirm if causal effects are identified in RNA and protein layers. 
+Joint-multiomic analysis will include all layers in a single statistical model.
 
 ## Protocol summary
 1. Process all raw WGS into an analysis-ready format - geonmic VCF (gVCF). 
@@ -57,6 +62,7 @@ specifically, a set of per-sample BAM files that have been pre-processed as desc
     - QV set 2 for statistical genomics (new associations with established methods) for cohort level discovery
     - QV set 1 or 2 for other methods (ML/DL, causal inference) (new methods) for individual and cohort level discovery
 1. Release data.
+1. If not already included in an analysis model, the candidate causal variants will be followed up to confirm if causal effects are identified in RNA and protein layers. 
 
 ## Protocol steps
 
@@ -79,10 +85,11 @@ The major processing steps in sequential order are:
     * [Pre-annotation processing](pre_annoprocess.html): data conversion for simpler handling
     * [Pre-annotation MAF](pre_anno_maf.html): filtering to remove noise
     * [DNA annotation](dna_annotation.html): annotate known effects, biological function, associations
-* **Aim 3-5 use a selective mixture of the remaining methods depending on the QV set**
+* **Aim 3 use a selective mixture of the remaining methods depending on the QV set**
     * [DNA interpretation](dna_interpretation.html)
     * [ACMG criteria](acmg_criteria_table_main.html): Standardised scoring for interpreting variant pathogenicity
     * Clinical genetics reports - not documented here
+* **Aim 4-7 use a selective mixture of the remaining methods depending on the QV set**
     * [Design Statistical genomics v1](design_statistical_genomics_v1.html)
     * ML/DL projects - not documented here
 * **Release**

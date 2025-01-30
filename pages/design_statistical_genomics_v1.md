@@ -29,10 +29,10 @@ The following aims are then used to reach the joint analysis.
 
 | Phase   | Aim  | Status              | Task                                                         |
 |:-------:|:----:|---------------------|--------------------------------------------------------------|
-| Phase 2 | (0)  | Complete                       | QC, PCA, clinical covariates, outcomes            |
-| Phase 2 | (1)  | In progress <br> Test complete | Single variant association test (SVAT)            |
-| Phase 2 | (2)  | In progress <br> Test complete | Variant set association test (VSAT) gene-level    |
-| Phase 2 | (3)  | Complete                       | ProteoMCLusteR to generate pathway setID          |
-| Phase 2 | (4)  | In progress <br> Test complete | Variant set association test (VSAT) pathway-level |
-| Phase 2 | (5)  | Complete                       | ACMGuru total score                               |
-| Phase 2 | (6)  | In progress <br> Test complete | Multiomic ACAT                                    |
+| Phase 2 | (0)  | **Complete**                               | QC, PCA, clinical covariates, outcomes            |
+| Phase 2 | (1)  | **2 experiment complete** <br> in progress | Single variant association test (SVAT) GWAS       |
+| Phase 2 | (2)  | **2 experiment complete** <br> in progress | Variant set association test (VSAT) gene-level    |
+| Phase 2 | (3)  | **Complete**                               | ProteoMCLusteR to generate pathway setID          |
+| Phase 2 | (4)  | **1 experiment complete** <br> in progress | Variant set association test (VSAT) pathway-level |
+| Phase 2 | (6)  | **1 experiment complete** <br> in progress | Multiomic ACAT                                    |
+
