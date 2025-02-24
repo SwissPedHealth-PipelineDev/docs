@@ -1,13 +1,8 @@
 ---
-title: "Implementing the Phoenix Sepsis Score"
-abstract: "This work deomostrates how to implement the Phoenix Sepsis Score criteria for sepsis and septic shock in children.
-Pediatric sepsis in children (<18 years) with suspected infection can be identified by at least 2 points in the novel Phoenix Sepsis Score, including dysfunction of the respiratory, cardiovascular, coagulation, and/or neurological systems; and septic shock as sepsis with at least 1 cardiovascular point in the Phoenix Sepsis Score.
-These criteria for pediatric sepsis and septic shock are globally applicable.
-The original investigation can be read at: International consensus criteria for pediatric sepsis and septic shock [@schlapbach2024international]. The phoenix R package and Python model are available from [@DeWitt2024phoenix].
-"
+title: "Sepsis score: Phoenix"
 author:
   - Dylan Lawless^[Dylan Lawless, PhD. Department of Intensive Care and Neonatology, University Children's Hospital Zürich, University of Zürich. dylan.lawless@kispi.uzh.ch]
-# date: "2024-11-27"
+# date: "2025-02-24"
 output:
   md_document:
     variant: gfm
@@ -30,13 +25,13 @@ header-includes:
   - \setmainfont{IBM Plex Sans Light}
   # - \setmainfont{Arial}
   # - \usepackage{xparse}
-bibliography: Phoenix_Sepsis_Score_logic.bib
+bibliography: sepsis_score_logic.bib
 nav_order: 5
 math: mathjax
 ---
 
 This doc was built with:
-`rmarkdown::render("Phoenix_Sepsis_Score_logic.Rmd", output_file = "../pages/Phoenix_Sepsis_Score_logic.md")`
+`rmarkdown::render("sepsis_score_logic_phoenix.Rmd", output_file = "../pages/phoenix_sepsis_score_logic.md")`
 
 # Implementing the Phoenix sepsis score
 
@@ -52,13 +47,16 @@ in the Phoenix Sepsis Score. These criteria for pediatric sepsis and
 septic shock are globally applicable. The original investigation can be
 read at: International consensus criteria for pediatric sepsis and
 septic shock (Schlapbach et al. 2024). The phoenix R package and Python
-model are available from (DeWitt et al. 2024).
-
-
-The sofa score is implemented in <https://github.com/eth-mds/ricu>.
-
-
-
+model are available from (DeWitt et al. 2024). The original
+investigation can be read at: International consensus criteria for
+pediatric sepsis and septic shock (Schlapbach et al. 2024). The phoenix
+R package and Python model are available from (DeWitt et al. 2024). The
+implementations of the Phoenix Sepsis Criteria in R, Python, and SQL are
+found here <https://github.com/cu-dbmi-peds/phoenix/> and here
+<https://pypi.org/project/phoenix-sepsis/>, by the original authors
+(DeWitt et al. 2024). An example implementation of the sofa score (a
+different score for adult sepsis) is shown in (Bennett, Plecko, and Ukor
+2023) Intensive Care Unit Data with R <https://github.com/eth-mds/ricu>.
 
 ![](../assets/images/Phoenix_decision_tree.png)
 
@@ -282,20 +280,20 @@ print(head(data))
     ## 4          4    409.06    280.26     FALSE    1.93
     ## 5          5    429.16    240.90     FALSE    1.28
     ## 6          6    115.94    408.09     FALSE    4.11
-    ##   vasoactive_medications platelets  INR d_dimer
-    ## 1                      2    137658 3.12    1.17
-    ## 2                      0    275363 3.20    1.15
-    ## 3                      3     88879 2.12    0.31
-    ## 4                      3    386975 2.74    2.49
-    ## 5                      2    384528 2.11    1.22
-    ## 6                      0    225491 3.47    3.79
-    ##   fibrinogen GCS pupils_reactive age_months
-    ## 1     355.67  12           FALSE        199
-    ## 2     149.93   4            TRUE         26
-    ## 3     202.11  15            TRUE        209
-    ## 4     428.23   8            TRUE        175
-    ## 5     421.51  15            TRUE         37
-    ## 6     118.33  14           FALSE         32
+    ##   vasoactive_medications platelets  INR d_dimer fibrinogen
+    ## 1                      2    137658 3.12    1.17     355.67
+    ## 2                      0    275363 3.20    1.15     149.93
+    ## 3                      3     88879 2.12    0.31     202.11
+    ## 4                      3    386975 2.74    2.49     428.23
+    ## 5                      2    384528 2.11    1.22     421.51
+    ## 6                      0    225491 3.47    3.79     118.33
+    ##   GCS pupils_reactive age_months
+    ## 1  12           FALSE        199
+    ## 2   4            TRUE         26
+    ## 3  15            TRUE        209
+    ## 4   8            TRUE        175
+    ## 5  15            TRUE         37
+    ## 6  14           FALSE         32
 
 ## Data distribution plots
 
@@ -464,34 +462,27 @@ if ("data" %in% ls() && is.data.frame(data)) {
 print(head(data))
 ```
 
-    ##   subject_id       result total_score PaO2_FiO2
-    ## 1          1 Septic shock          10    200.65
-    ## 2          2       Sepsis           2    375.91
-    ## 3          3 Septic shock           7    243.14
-    ## 4          4 Septic shock           8    409.06
-    ## 5          5 Septic shock           7    429.16
-    ## 6          6       Sepsis           3    115.94
-    ##   SpO2_FiO2 is_on_IMV lactate vasoactive_medications
-    ## 1    183.55      TRUE    1.57                      2
-    ## 2    436.83     FALSE    3.59                      0
-    ## 3    310.48      TRUE    1.52                      3
-    ## 4    280.26     FALSE    1.93                      3
-    ## 5    240.90     FALSE    1.28                      2
-    ## 6    408.09     FALSE    4.11                      0
-    ##   platelets  INR d_dimer fibrinogen GCS
-    ## 1    137658 3.12    1.17     355.67  12
-    ## 2    275363 3.20    1.15     149.93   4
-    ## 3     88879 2.12    0.31     202.11  15
-    ## 4    386975 2.74    2.49     428.23   8
-    ## 5    384528 2.11    1.22     421.51  15
-    ## 6    225491 3.47    3.79     118.33  14
-    ##   pupils_reactive age_months
-    ## 1           FALSE        199
-    ## 2            TRUE         26
-    ## 3            TRUE        209
-    ## 4            TRUE        175
-    ## 5            TRUE         37
-    ## 6           FALSE         32
+    ##   subject_id       result total_score PaO2_FiO2 SpO2_FiO2
+    ## 1          1 Septic shock          10    200.65    183.55
+    ## 2          2       Sepsis           2    375.91    436.83
+    ## 3          3 Septic shock           7    243.14    310.48
+    ## 4          4 Septic shock           8    409.06    280.26
+    ## 5          5 Septic shock           7    429.16    240.90
+    ## 6          6       Sepsis           3    115.94    408.09
+    ##   is_on_IMV lactate vasoactive_medications platelets  INR
+    ## 1      TRUE    1.57                      2    137658 3.12
+    ## 2     FALSE    3.59                      0    275363 3.20
+    ## 3      TRUE    1.52                      3     88879 2.12
+    ## 4     FALSE    1.93                      3    386975 2.74
+    ## 5     FALSE    1.28                      2    384528 2.11
+    ## 6     FALSE    4.11                      0    225491 3.47
+    ##   d_dimer fibrinogen GCS pupils_reactive age_months
+    ## 1    1.17     355.67  12           FALSE        199
+    ## 2    1.15     149.93   4            TRUE         26
+    ## 3    0.31     202.11  15            TRUE        209
+    ## 4    2.49     428.23   8            TRUE        175
+    ## 5    1.22     421.51  15            TRUE         37
+    ## 6    3.79     118.33  14           FALSE         32
 
 ## Conclustion
 
@@ -532,6 +523,13 @@ Criteria table from (Schlapbach et al. 2024).
 
 <div id="refs" class="references csl-bib-body hanging-indent"
 entry-spacing="0">
+
+<div id="ref-ricu2023" class="csl-entry">
+
+Bennett, Nicolas, Drago Plecko, and Ida-Fong Ukor. 2023. *Ricu:
+Intensive Care Unit Data with r*.
+
+</div>
 
 <div id="ref-Carlton2019" class="csl-entry">
 
