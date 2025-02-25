@@ -3,7 +3,6 @@
 This is the initial README for the PipelineDev documentation pages:
 <https://swisspedhealth-pipelinedev.github.io/docs/>.
 
-
 ## Cloning and keys
 ### Summary
 Instead of the default method for cloning, I specify my username for github to clone:
