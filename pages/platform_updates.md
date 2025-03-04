@@ -15,6 +15,7 @@ Last update: 20250123
 
 | Type | Version date | Release |
 |---|---|---|
+| ☆☆☆ | v2.0 20250301 | [Main dataset DNA SNV and INDEL V2 (internal) data release]({% link pages/design_dna_snvindel_v2_release.md %}) |
 | ☆☆  | v1.0 20250123 | [Heracles report package live release](https://github.com/DylanLawless/heracles) |
 | ☆☆  | v1.0 20250120 | [PanelAppRex package live release](https://github.com/DylanLawless/PanelAppRex) |
 | ☆☆☆ | v1.0 20250102 | [Main dataset DNA SNV and INDEL V1 (internal) data release]({% link pages/design_dna_snvindel_v1_release.md %}) |

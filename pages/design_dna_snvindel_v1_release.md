@@ -29,7 +29,8 @@ Last update: 20250102
 {: .new-title }
 > Status
 >
-> **Status**: `design_dna_snv_indel_v1_relsease` is currently **recommended**.\\
+> **Status**: `design_dna_snv_indel_v2_relsease` is currently **recommended**.\\
+> We have added new annotation settings affecting which QV are reported.
 > \\
 > Any modifications due to error will be notified and a new release ID will be issued (e.g. `design_dna_snv_indel_v1.2_relsease`).
 
