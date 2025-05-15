@@ -6,17 +6,22 @@ nav_order: 5
 
 # Platform updates
 
-Last update: 20250123
+Last update: 20250509
 <!-- [Link to a page]({{ site.baseurl }}{% link pages/ref.md %}) -->
 
 1. ☆   Minor features
 2. ☆☆  Major features
 3. ☆☆☆ Milestones
+4. 🚀 Publication
 
 | Type | Version date | Release |
 |---|---|---|
+| 🚀 | v2.0 20250509 | [Application of qualifying variants for genomic analysis](https://www.medrxiv.org/content/10.1101/2025.05.09.25324975v2) |
+| 🚀 | v4.0 20250325 | [Quantifying the Genetics of Disease Inheritance for Bayesian Applicatio](https://www.medrxiv.org/content/10.1101/2025.03.25.25324607v4) |
+| 🚀 | v2.0 20250320 | [PanelAppRex aggregates disease gene panels and facilitates sophisticated search](https://www.medrxiv.org/content/10.1101/2025.03.20.25324319v1) |
+| 🚀 | v1.0 20250317 | [Archipelago method for variant set association test statistics](https://www.medrxiv.org/content/10.1101/2025.03.17.25324111v1) |
 | ☆☆☆ | v2.0 20250301 | [Main dataset DNA SNV and INDEL V2 (internal) data release]({% link pages/design_dna_snvindel_v2_release.md %}) |
-| ☆☆  | v1.0 20250123 | [Heracles report package live release](https://github.com/DylanLawless/heracles) |
+| ☆☆  | v1.0 20250123 | [Dante report package live release](https://github.com/DylanLawless/dante) |
 | ☆☆  | v1.0 20250120 | [PanelAppRex package live release](https://github.com/DylanLawless/PanelAppRex) |
 | ☆☆☆ | v1.0 20250102 | [Main dataset DNA SNV and INDEL V1 (internal) data release]({% link pages/design_dna_snvindel_v1_release.md %}) |
 | ☆☆  | v1.0 20241220 | [PCA SNV and INDEL Design V1 release]({% link pages/design_PCA_SNV_INDEL_V1.md %}) |
