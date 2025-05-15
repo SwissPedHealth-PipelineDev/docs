@@ -16,10 +16,10 @@ Last update: 20250509
 
 | Type | Version date | Release |
 |---|---|---|
-| 🚀 | v2.0 20250509 | [Application of qualifying variants for genomic analysis](https://www.medrxiv.org/content/10.1101/2025.05.09.25324975v2) |
-| 🚀 | v4.0 20250325 | [Quantifying the Genetics of Disease Inheritance for Bayesian Applicatio](https://www.medrxiv.org/content/10.1101/2025.03.25.25324607v4) |
-| 🚀 | v2.0 20250320 | [PanelAppRex aggregates disease gene panels and facilitates sophisticated search](https://www.medrxiv.org/content/10.1101/2025.03.20.25324319v1) |
-| 🚀 | v1.0 20250317 | [Archipelago method for variant set association test statistics](https://www.medrxiv.org/content/10.1101/2025.03.17.25324111v1) |
+| 🚀 | v2.0 20250509 | [Pre-print: Application of qualifying variants for genomic analysis](https://www.medrxiv.org/content/10.1101/2025.05.09.25324975v2) |
+| 🚀 | v4.0 20250325 | [Pre-print: Quantifying prior probabilities for disease-causing variants reveal the top genetic contributors in inborn errors of immunity](https://www.medrxiv.org/content/10.1101/2025.03.25.25324607v4) |
+| 🚀 | v2.0 20250320 | [Pre-print: PanelAppRex aggregates disease gene panels and facilitates sophisticated search](https://www.medrxiv.org/content/10.1101/2025.03.20.25324319v1) |
+| 🚀 | v1.0 20250317 | [Pre-print: Archipelago method for variant set association test statistics](https://www.medrxiv.org/content/10.1101/2025.03.17.25324111v1) |
 | ☆☆☆ | v2.0 20250301 | [Main dataset DNA SNV and INDEL V2 (internal) data release]({% link pages/design_dna_snvindel_v2_release.md %}) |
 | ☆☆  | v1.0 20250123 | [Dante report package live release](https://github.com/DylanLawless/dante) |
 | ☆☆  | v1.0 20250120 | [PanelAppRex package live release](https://github.com/DylanLawless/PanelAppRex) |
