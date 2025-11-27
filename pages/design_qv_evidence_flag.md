@@ -41,7 +41,9 @@ A versioned configuration file (YAML/JSON) defines the minimum verifiable eviden
 
 ### Part 2: Configuration registry
 
-A registry stores configuration files as stable records with identifiers and checksums (e.g. <https://switzerlandomics.ch/technologies/qv_database/>). Shared configurations can be used directly, while project specific configurations are preserved for exact reproducibility. The registry may be public or private, as verification depends only on the clarity and stability of the configuration.
+A registry stores configuration files as stable records with identifiers and checksums.
+<!-- (e.g. <https://switzerlandomics.ch/technologies/qv_database/>).  -->
+Shared configurations can be used directly, while project specific configurations are preserved for exact reproducibility. The registry may be public or private, as verification depends only on the clarity and stability of the configuration.
 
 
 ## Verification model
@@ -81,3 +83,24 @@ Any compliant system will produce the same minimal evidence state for this *CFTR
 
 ## Compliance with national and international data standards
 The evidence framework is fully aligned with the principles established by SPHN, GA4GH, and national public health digitisation strategies. SPHN requires structured, interoperable, and provenance aware genomic data, and the guideline matches this by defining a computable evidence model, versioned rule sets, and machine readable outputs that can be exchanged across clinical, research, and commercial systems. The use of GA4GH standards, including VRS for variant identity and VA for structured evidence representation, ensures that all evidence states, flags, and provenance fields can be incorporated directly into international data ecosystems without transformation. By adopting these globally recognised models, the framework supports FAIR data practices, federated discovery, and cross institutional interoperability, in line with both Swiss and international objectives for a secure, transparent, and scalable digital health infrastructure.
+
+We generate SPHN compatible RDF metadata in TTL format and store it. SPHN provides the national standard for interoperable health data in Switzerland, so this structure allows direct integration with hospitals, clinics, and national projects. It also aligns with global ecosystems, making connections to systems such as Epic and REDCap straightforward.
+
+RDF expresses data as subject–predicate–object triples, and TTL provides a compact, readable syntax suited for review, versioning, governance, and loading into triple stores.
+
+Features include:
+
+* SPHN compatible classes and relations for variant descriptor, administrative case, and flags like evidence of genotype and mode of inheritance
+* TTL exports stored next to the source data for clear audit and governance
+* Ready for drop in import into triple stores and analysis pipelines
+
+<img src="{{ "pages/design_doc/images/example_variant_short_darkplot.png" | relative_url }}" width="100%">
+<img src="{{ "pages/design_doc/images/example_variant_long_darkplot.png" | relative_url }}" width="100%">
+
+**Figure 4**. Graph representation of the evidence available for a single variant. The framework applies the reverse logic for clinical genetics: instead of re-questioning whether a variant is pathogenic, we quantify how much verifiable evidence is present to support interpretation. 
+The first panel uses
+<span style="display:inline-block;width:0.8em;height:0.8em;background:#53c000;border:1px solid #000;"></span> TRUE,
+<span style="display:inline-block;width:0.8em;height:0.8em;background:#ee4035;border:1px solid #000;"></span> FALSE,
+and <span style="display:inline-block;width:0.8em;height:0.8em;background:#ffbf00;border:1px solid #000;"></span> NA.
+to illustrate a minimal example with three evidence flags. The second panel shows the full evidence set produced for the same variant.
+
