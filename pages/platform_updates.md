@@ -6,7 +6,7 @@ nav_order: 5
 
 # Platform updates
 
-Last update: 20250509
+Last update: 20251216
 <!-- [Link to a page]({{ site.baseurl }}{% link pages/ref.md %}) -->
 
 1. ☆   Minor features
@@ -14,13 +14,20 @@ Last update: 20250509
 3. ☆☆☆ Milestones
 4. 🚀 Publication
 
+## Relseases
+
 | Type | Version date | Release |
 |---|---|---|
+| 🚀 | v1.0 20251213 | [Software: quantbayes - macOS universal](https://doi.org/10.5281/zenodo.17919369) |
+| 🚀 | v1.0 20251213 | [Software: quantbayes - Linux x86](https://doi.org/10.5281/zenodo.17919369) |
+| 🚀 | v1.0 20251213 | [Software: quantbayes - R package](https://doi.org/10.5281/zenodo.17919369) |
+| 🚀 | v1.0 20251204 | [Pre-print: A Bayesian model for quantifying genomic variant evidence suﬀiciency in Mendelian disease](https://doi.org/10.64898/2025.12.02.25341503) |
 | 🚀 | v2.0 20250509 | [Pre-print: Application of qualifying variants for genomic analysis](https://www.medrxiv.org/content/10.1101/2025.05.09.25324975v2) |
 | 🚀 | v4.0 20250325 | [Pre-print: Quantifying prior probabilities for disease-causing variants reveal the top genetic contributors in inborn errors of immunity](https://www.medrxiv.org/content/10.1101/2025.03.25.25324607v4) |
 | 🚀 | v2.0 20250320 | [Pre-print: PanelAppRex aggregates disease gene panels and facilitates sophisticated search](https://www.medrxiv.org/content/10.1101/2025.03.20.25324319v1) |
 | 🚀 | v1.0 20250317 | [Pre-print: Archipelago method for variant set association test statistics](https://www.medrxiv.org/content/10.1101/2025.03.17.25324111v1) |
 | ☆☆☆ | v2.0 20250301 | [Main dataset DNA SNV and INDEL V2 (internal) data release]({% link pages/design_dna_snvindel_v2_release.md %}) |
+| 🚀 | v1.0 20250226 | [Software: archipelago - R package](https://github.com/DylanLawless/archipelago)
 | ☆☆  | v1.0 20250123 | [Dante report package live release](https://github.com/DylanLawless/dante) |
 | ☆☆  | v1.0 20250120 | [PanelAppRex package live release](https://github.com/DylanLawless/PanelAppRex) |
 | ☆☆☆ | v1.0 20250102 | [Main dataset DNA SNV and INDEL V1 (internal) data release]({% link pages/design_dna_snvindel_v1_release.md %}) |
@@ -47,11 +54,15 @@ Last update: 20250509
 | ☆   | v0.1 20220701 | [Design Document]({% link pages/design_doc.md %}) |
 
 
+## Annotated variant output
 
-## Internal pre-prints 
+| Type | Version date | Release |
+|---|---|---|
+| ☆ | 20251216 | Phase 3 WGS - SNV Indel Exomiser v6 - Single-case exome optimised updated phenotypes |
+| ☆ | 20251205 | Phase 3 WGS - SNV Indel Exomiser vCustom - Single-case custom phenotypes  |
+| ☆☆☆ | 20251027* | Phase 3 WGS - SNV Indel Exomiser v3 - Trio exome config optimised |
+| ☆☆☆ | 20250924* | Phase 3 WGS - SNV Indel Exomiser v2 - Single-case genome config optimised |
+| ☆☆ | 20250806 | Phase 3 WGS - Structural variants SV - Smoove / Manta |
+| ☆☆☆ | 20250716 | Phase 3 WGS - SNV Indel Exomiser v1 - Single-case exome config |
 
-* archipelago2025lawless <https://www.overleaf.com/project/6794adeaf67d79f23962b81a>
-* qv2025lawless <https://www.overleaf.com/project/6794ac2a8429fed58bd1cba9>
-* sph2025lawless <https://www.overleaf.com/project/667a7e6cb0ac9a21b9fe9a6b>
-
-
+*Dates with an overwriting rerun at this later date.
